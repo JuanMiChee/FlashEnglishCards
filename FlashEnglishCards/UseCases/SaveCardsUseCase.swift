@@ -13,6 +13,6 @@ protocol SaveCardsUseCaseProtocol {
 
 struct SaveCardsUseCase: SaveCardsUseCaseProtocol {
     func execute() {
-        Print("Remember to implement save cards use case stupid")
+        print("Remember to implement save cards use case stupid")
     }
 }
