@@ -9,18 +9,41 @@ import Foundation
 import UIKit
 
 class HomeViewViewModel: ObservableObject {
+    
+    @Published var isSheetPresented: Bool = false
+    @Published var sheetText: String = ""
+    
+    @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardModel(text: "")])
+    
     let dependencies: Dependencies
+    
+    struct Dependencies {
+        let getCards: GetCardsUseCaseProtocol
+        let saveCards: SaveNewCardUseCaseProtocol
+    }
     
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
     }
-    struct Dependencies {
-        let getCards: GetCardsUseCase
+    
+    
+    func asignCardsToView() {
+        viewContent.texts = dependencies.getCards.execute()
     }
     
-    @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardModel(text: "")])
+    func saveNewCard(card: FlashCardModel) {
+        dependencies.saveCards.execute(card: card)
+    }
     
-    func asignCards() {
-        viewContent.texts = dependencies.getCards.execute()
+    func doneButtonTrigger() {
+        isSheetPresented = false
+        saveNewCard(card: FlashCardModel(text: sheetText))
+        asignCardsToView()
+        sheetText = ""
+    }
+    
+    func cancelButtonTrigger() {
+        isSheetPresented = false
+        sheetText = ""
     }
 }
