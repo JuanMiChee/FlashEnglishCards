@@ -11,11 +11,9 @@ protocol GetCardsUseCaseProtocol {
 }
 
 struct GetCardsUseCase: GetCardsUseCaseProtocol {
+    let storage: MainStorage
+    
     func execute() -> [FlashCardModel]{
-        [FlashCardModel(text: "example 1"),
-         FlashCardModel(text: "example 12"),
-         FlashCardModel(text: "example 123"),
-         FlashCardModel(text: "example 1234"),
-         FlashCardModel(text: "example 12345")]
+        storage.getCards()
     }
 }
