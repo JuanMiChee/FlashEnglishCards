@@ -11,7 +11,7 @@ import UIKit
 class HomeViewViewModel: ObservableObject {
     
     @Published var isSheetPresented: Bool = false
-    @Published var sheetText: String = ""
+    @Published var newCardTittle: String = ""
     
     @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardModel(text: "")])
     
@@ -31,19 +31,23 @@ class HomeViewViewModel: ObservableObject {
         viewContent.texts = dependencies.getCards.execute()
     }
     
-    func saveNewCard(card: FlashCardModel) {
+    private func saveNewCard(card: FlashCardModel) {
         dependencies.saveCards.execute(card: card)
     }
     
     func doneButtonTrigger() {
         isSheetPresented = false
-        saveNewCard(card: FlashCardModel(text: sheetText))
+        saveNewCard(card: FlashCardModel(text: newCardTittle))
         asignCardsToView()
-        sheetText = ""
+        newCardTittle = ""
     }
     
     func cancelButtonTrigger() {
         isSheetPresented = false
-        sheetText = ""
+        newCardTittle = ""
+    }
+    
+    func AddCardButtonTrigger() {
+        isSheetPresented = true
     }
 }

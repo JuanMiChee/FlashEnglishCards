@@ -14,7 +14,7 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             VStack {
-                Text(viewModel.sheetText)
+                Text(viewModel.newCardTittle)
                 Text("*Wanna learn something today?*")
                     .font(.title)
                     .padding(.top)
@@ -46,7 +46,7 @@ struct HomeView: View {
             HStack {
                 Spacer()
                 Button("+") {
-                    viewModel.isSheetPresented = true
+                    viewModel.AddCardButtonTrigger()
                 }
                 .buttonStyle(PlusButtonStyle(desiredBackgroundColor: Color(UIColor.systemYellow)))
             }
@@ -61,7 +61,7 @@ struct HomeView: View {
                 .foregroundColor(Color(UIColor.systemGray))
             TextField(
                 "Card name",
-                text: $viewModel.sheetText
+                text: $viewModel.newCardTittle
             )
             .padding()
             .background(Color(UIColor.systemGray5))
