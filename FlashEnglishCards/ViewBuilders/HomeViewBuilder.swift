@@ -10,6 +10,10 @@ import Foundation
 extension HomeView {
     static func build() -> Self {
         let storage = MainStorage()
-        return HomeView(viewModel: HomeViewViewModel(dependencies: HomeViewViewModel.Dependencies(getCards: GetCardsUseCase(storage: storage), saveCards: SaveNewCardUseCase(storage: storage))))
+        let getCardsUseCase = GetCardsUseCase(storage: storage)
+        let saveCardsUseCase = SaveNewCardUseCase(storage: storage)
+        
+        return .init(viewModel: .init(dependencies: .init(getCards: getCardsUseCase,
+                                                          saveCards: saveCardsUseCase)))
     }
 }
