@@ -10,8 +10,10 @@ import UIKit
 
 class HomeViewViewModel: ObservableObject {
     
-    @Published var isSheetPresented: Bool = false
+    @Published var isAddNewCardSheetToggled: Bool = false
+    @Published var isCardMoreInfoViewToggled: Bool = false
     @Published var newCardTittle: String = ""
+    @Published var moreInfoText: String = ""
     
     @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardModel(text: "")])
     
@@ -36,18 +38,18 @@ class HomeViewViewModel: ObservableObject {
     }
     
     func doneButtonTrigger() {
-        isSheetPresented = false
+        isAddNewCardSheetToggled = false
         saveNewCard(card: FlashCardModel(text: newCardTittle))
         asignCardsToView()
         newCardTittle = ""
     }
     
     func cancelButtonTrigger() {
-        isSheetPresented = false
+        isAddNewCardSheetToggled = false
         newCardTittle = ""
     }
     
     func AddCardButtonTrigger() {
-        isSheetPresented = true
+        isAddNewCardSheetToggled = true
     }
 }
