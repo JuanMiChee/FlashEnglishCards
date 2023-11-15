@@ -25,15 +25,22 @@ struct HomeView: View {
                 ScrollView {
                     ForEach(viewModel.viewContent.texts) { text in
                         FlashCardView(text: text.text)
+                            .onTapGesture {
+                                viewModel.isCardMoreInfoViewToggled = true
+                            }
                     }
                 }
             }
             //PlusButtonView, you can see it below
             plusButtonView
         }
-        .sheet(isPresented: $viewModel.isSheetPresented) {
+        .sheet(isPresented: $viewModel.isAddNewCardSheetToggled) {
             //Sheet view, you can also see it below
-            sheetView
+            addNewCardSheet
+        }
+        .sheet(isPresented: $viewModel.isCardMoreInfoViewToggled) {
+            //You can also see this card below
+            cardMoreInfoViewSheet
         }
         .onAppear {
             viewModel.asignCardsToView()
@@ -53,8 +60,9 @@ struct HomeView: View {
         }
     }
     
-    //Here is the sheet view
-    var sheetView: some View {
+    //Mark: Sheets
+    
+    var addNewCardSheet: some View {
         VStack {
             Text("*Name of your new card.*")
                 .font(.title)
@@ -63,6 +71,20 @@ struct HomeView: View {
                 "Card name",
                 text: $viewModel.newCardTittle
             )
+            .padding()
+            .background(Color(UIColor.systemGray5))
+            .border(Color(UIColor.systemGray3), width: 1)
+            .cornerRadius(20)
+            .padding(.horizontal, 20)
+            .padding(.bottom)
+            
+            Text("Woukd you like to add a description?")
+                .font(.title3)
+                .foregroundColor(Color(UIColor.systemGray))
+            TextEditor(
+                text: $viewModel.moreInfoText
+            )
+            .frame(height: 150)
             .padding()
             .background(Color(UIColor.systemGray5))
             .border(Color(UIColor.systemGray3), width: 1)
@@ -78,6 +100,10 @@ struct HomeView: View {
             }
             .buttonStyle(MainButtonStyle(desiredBackgroundColor: Color.red))
         }
+    }
+    
+    var cardMoreInfoViewSheet: some View {
+        CardMoreInfoView(moreInfoText: "")
     }
 }
 
