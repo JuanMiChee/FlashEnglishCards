@@ -9,16 +9,19 @@ import Foundation
 import SwiftUI
 
 struct MainButtonStyle: ButtonStyle {
-    let desiredBackgroundColor: Color
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(width: 60)
+            .frame(width: 70)
+            .font(.system(size: 20, weight: .bold))
             .padding(10)
             .foregroundColor(.white)
             .padding(.horizontal, 30)
-            .background(desiredBackgroundColor)
-            .cornerRadius(8)
-            .shadow(color: Color.gray, radius: 4, x: 0, y: 4)
+            .background(Color("mainFontColor"))
+            .cornerRadius(20)
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(.white, lineWidth: 2)
+            )
     }
 }

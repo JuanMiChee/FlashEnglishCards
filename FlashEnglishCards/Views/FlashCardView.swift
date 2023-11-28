@@ -10,16 +10,25 @@ import SwiftUI
 struct FlashCardView: View {
     var text: String
     var body: some View {
-        HStack {
-            Image(systemName: "circle.fill")
-            Text(text)
+        VStack(alignment: .trailing) {
+            
+            Image("engranaje")
+                .padding([.top, .trailing], 20)//Lets pretend this is a star for now
+            Spacer()
+            HStack {
+                Spacer()
+                Text(text)
+                    .font(.system(size: 40, weight: .bold))
+                    .foregroundColor(Color("mainFontColor"))
+                Spacer()
+            }
+            .padding(.bottom)
             Spacer()
         }
-        .padding()
+        .frame(minHeight: 500, maxHeight: 500)
         .background(Color.white)
-        .cornerRadius(10)
-        .shadow(color: Color.gray, radius: 4, x: 0, y: 4)
-        .padding(.horizontal)
+        .cornerRadius(20)
+        .padding()
     }
 }
 

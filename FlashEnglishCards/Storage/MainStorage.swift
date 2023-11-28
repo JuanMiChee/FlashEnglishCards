@@ -22,7 +22,7 @@ struct MainStorage: StorageProtocol {
         do {
             let encoder = JSONEncoder()
             if let encodedFlashCardArray = try? encoder.encode(arrayToSave) {
-                print(encodedFlashCardArray)
+                //print(encodedFlashCardArray)
                 defaults.set(encodedFlashCardArray, forKey: "flashCardsArray")
             }
         }
@@ -38,7 +38,7 @@ struct MainStorage: StorageProtocol {
                 returnableCardsArray = decodedFlashCardArray
             }
         }
-        print(returnableCardsArray)
+        //print(returnableCardsArray)
         return returnableCardsArray
     }
 }
