@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		733DADBC2B1538A400E303DC /* AddNewCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DADBB2B1538A400E303DC /* AddNewCategoryView.swift */; };
+		733DADBE2B15394B00E303DC /* FlashCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DADBD2B15394B00E303DC /* FlashCardsView.swift */; };
 		7350E63E2AFD366300A225C4 /* FlashEnglishCardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E63D2AFD366300A225C4 /* FlashEnglishCardsApp.swift */; };
 		7350E6402AFD366300A225C4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E63F2AFD366300A225C4 /* HomeView.swift */; };
 		7350E6422AFD366600A225C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7350E6412AFD366600A225C4 /* Assets.xcassets */; };
@@ -23,6 +25,12 @@
 		7350E6CD2AFF33B800A225C4 /* HomeViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6CC2AFF33B800A225C4 /* HomeViewBuilder.swift */; };
 		7350E6D52AFF357B00A225C4 /* MainButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6D42AFF357B00A225C4 /* MainButtonStyle.swift */; };
 		7350E6DE2AFF369E00A225C4 /* PlusButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6DD2AFF369E00A225C4 /* PlusButtonStyle.swift */; };
+<<<<<<< Updated upstream
+=======
+		738849F32B1003AB00735E64 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738849F22B1003AB00735E64 /* FontExtension.swift */; };
+		738849F52B10052D00735E64 /* FlashCardSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738849F42B10052D00735E64 /* FlashCardSectionView.swift */; };
+		73D0903E2B053B26007526A1 /* CardMoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D0903D2B053B26007526A1 /* CardMoreInfoView.swift */; };
+>>>>>>> Stashed changes
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		733DADBB2B1538A400E303DC /* AddNewCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCategoryView.swift; sourceTree = "<group>"; };
+		733DADBD2B15394B00E303DC /* FlashCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsView.swift; sourceTree = "<group>"; };
 		7350E63A2AFD366300A225C4 /* FlashEnglishCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashEnglishCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7350E63D2AFD366300A225C4 /* FlashEnglishCardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashEnglishCardsApp.swift; sourceTree = "<group>"; };
 		7350E63F2AFD366300A225C4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -65,6 +75,12 @@
 		7350E6CC2AFF33B800A225C4 /* HomeViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBuilder.swift; sourceTree = "<group>"; };
 		7350E6D42AFF357B00A225C4 /* MainButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonStyle.swift; sourceTree = "<group>"; };
 		7350E6DD2AFF369E00A225C4 /* PlusButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonStyle.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
+=======
+		738849F22B1003AB00735E64 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		738849F42B10052D00735E64 /* FlashCardSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardSectionView.swift; sourceTree = "<group>"; };
+		73D0903D2B053B26007526A1 /* CardMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMoreInfoView.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +131,7 @@
 		7350E63C2AFD366300A225C4 /* FlashEnglishCards */ = {
 			isa = PBXGroup;
 			children = (
+				738849F12B10039200735E64 /* EscentialClassesEtensions */,
 				7350E6722AFD832500A225C4 /* Assets */,
 				7350E66B2AFD82FC00A225C4 /* Models */,
 				7350E6912AFEEA1700A225C4 /* UseCases */,
@@ -186,6 +203,13 @@
 				7350E63F2AFD366300A225C4 /* HomeView.swift */,
 				7350E63D2AFD366300A225C4 /* FlashEnglishCardsApp.swift */,
 				7350E6872AFED86000A225C4 /* FlashCardView.swift */,
+<<<<<<< Updated upstream
+=======
+				73D0903D2B053B26007526A1 /* CardMoreInfoView.swift */,
+				738849F42B10052D00735E64 /* FlashCardSectionView.swift */,
+				733DADBB2B1538A400E303DC /* AddNewCategoryView.swift */,
+				733DADBD2B15394B00E303DC /* FlashCardsView.swift */,
+>>>>>>> Stashed changes
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +254,14 @@
 				7350E6DD2AFF369E00A225C4 /* PlusButtonStyle.swift */,
 			);
 			path = ViewStyles;
+			sourceTree = "<group>";
+		};
+		738849F12B10039200735E64 /* EscentialClassesEtensions */ = {
+			isa = PBXGroup;
+			children = (
+				738849F22B1003AB00735E64 /* FontExtension.swift */,
+			);
+			path = EscentialClassesEtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,16 +395,24 @@
 			files = (
 				7350E6942AFEEA3C00A225C4 /* GetCardsUseCase.swift in Sources */,
 				7350E6DE2AFF369E00A225C4 /* PlusButtonStyle.swift in Sources */,
+				738849F32B1003AB00735E64 /* FontExtension.swift in Sources */,
 				7350E6882AFED86000A225C4 /* FlashCardView.swift in Sources */,
 				7350E69C2AFEEA5800A225C4 /* SaveNewCardUseCase.swift in Sources */,
 				7350E6B32AFF0CA900A225C4 /* FlashCardModel.swift in Sources */,
+				733DADBE2B15394B00E303DC /* FlashCardsView.swift in Sources */,
 				7350E6402AFD366300A225C4 /* HomeView.swift in Sources */,
 				7350E68D2AFEDF8B00A225C4 /* HomeViewViewModel.swift in Sources */,
 				7350E6D52AFF357B00A225C4 /* MainButtonStyle.swift in Sources */,
+<<<<<<< Updated upstream
+=======
+				73D0903E2B053B26007526A1 /* CardMoreInfoView.swift in Sources */,
+				738849F52B10052D00735E64 /* FlashCardSectionView.swift in Sources */,
+>>>>>>> Stashed changes
 				7350E63E2AFD366300A225C4 /* FlashEnglishCardsApp.swift in Sources */,
 				7350E6CD2AFF33B800A225C4 /* HomeViewBuilder.swift in Sources */,
 				7350E6AE2AFF0BE700A225C4 /* MainStorage.swift in Sources */,
 				7350E6A32AFEEB2D00A225C4 /* HomeViewViewContent.swift in Sources */,
+				733DADBC2B1538A400E303DC /* AddNewCategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
