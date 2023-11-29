@@ -8,37 +8,35 @@
 import Foundation
 
 protocol StorageProtocol {
-    func saveNewCard(card: FlashCardModel)
-    func getCards() -> [FlashCardModel]
+    func saveNewCardCategory(card: FlashCardCategoryModel)
+    func getCardCateogries() -> [FlashCardCategoryModel]
 }
 
 struct MainStorage: StorageProtocol {
     let defaults = UserDefaults.standard
     
-    func saveNewCard(card: FlashCardModel) {
-        var arrayToSave: [FlashCardModel] = getCards()
+    func saveNewCardCategory(card: FlashCardCategoryModel) {
+        var arrayToSave: [FlashCardCategoryModel] = getCardCateogries()
         arrayToSave.append(card)
         
         do {
             let encoder = JSONEncoder()
             if let encodedFlashCardArray = try? encoder.encode(arrayToSave) {
-                //print(encodedFlashCardArray)
-                defaults.set(encodedFlashCardArray, forKey: "flashCardsArray")
+                defaults.set(encodedFlashCardArray, forKey: "flashCardCategoriesArray")
             }
         }
     }
     
-    func getCards() -> [FlashCardModel] {
-        var returnableCardsArray: [FlashCardModel] = []
+    func getCardCateogries() -> [FlashCardCategoryModel] {
+        var returnableCardsArray: [FlashCardCategoryModel] = []
         
-        if let data = UserDefaults.standard.data(forKey: "flashCardsArray") {
+        if let data = UserDefaults.standard.data(forKey: "flashCardCategoriesArray") {
             let decoder = JSONDecoder()
             
-            if let decodedFlashCardArray = try? decoder.decode([FlashCardModel].self, from: data) {
+            if let decodedFlashCardArray = try? decoder.decode([FlashCardCategoryModel].self, from: data) {
                 returnableCardsArray = decodedFlashCardArray
             }
         }
-        //print(returnableCardsArray)
         return returnableCardsArray
     }
 }

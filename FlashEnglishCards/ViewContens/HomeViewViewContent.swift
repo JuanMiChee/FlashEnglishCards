@@ -8,5 +8,5 @@
 import Foundation
 
 struct HomeViewViewContent {
-    var texts: [FlashCardModel]
+    var texts: [FlashCardCategoryModel]
 }

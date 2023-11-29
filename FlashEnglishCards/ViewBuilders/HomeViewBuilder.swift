@@ -11,8 +11,8 @@ import Foundation
 extension HomeView {
     static func build() -> Self {
         let storage = MainStorage()
-        let getCardsUseCase = GetCardsUseCase(storage: storage)
-        let saveCardsUseCase = SaveNewCardUseCase(storage: storage)
+        let getCardsUseCase = GetCardCategoriesUseCase(storage: storage)
+        let saveCardsUseCase = SaveNewCardCategoryUseCase(storage: storage)
         
         return .init(viewModel: .init(dependencies: .init(getCards: getCardsUseCase,
                                                           saveCards: saveCardsUseCase)))

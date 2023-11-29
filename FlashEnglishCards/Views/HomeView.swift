@@ -44,12 +44,8 @@ struct HomeView: View {
             .toolbarBackground(.white, for: .tabBar)
             .toolbarBackground(.visible, for: .tabBar)
             .toolbarColorScheme(.light, for: .tabBar)
-            
-            
-            
         }
     }
-    
     
     var plusButtonView: some View {
         VStack {
@@ -64,12 +60,10 @@ struct HomeView: View {
         }
     }
     
-    
     //Here is the sheet view
     var sheetView: some View {
         AddNewCategoryView()
     }
-    
     
     var addNewCardSheet: some View {
         ZStack {

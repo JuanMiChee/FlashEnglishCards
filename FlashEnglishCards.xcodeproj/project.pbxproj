@@ -17,11 +17,11 @@
 		7350E65B2AFD366700A225C4 /* FlashEnglishCardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E65A2AFD366700A225C4 /* FlashEnglishCardsUITests.swift */; };
 		7350E6882AFED86000A225C4 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6872AFED86000A225C4 /* FlashCardView.swift */; };
 		7350E68D2AFEDF8B00A225C4 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E68C2AFEDF8B00A225C4 /* HomeViewViewModel.swift */; };
-		7350E6942AFEEA3C00A225C4 /* GetCardsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6932AFEEA3C00A225C4 /* GetCardsUseCase.swift */; };
-		7350E69C2AFEEA5800A225C4 /* SaveNewCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E69B2AFEEA5800A225C4 /* SaveNewCardUseCase.swift */; };
+		7350E6942AFEEA3C00A225C4 /* GetCardCategoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6932AFEEA3C00A225C4 /* GetCardCategoriesUseCase.swift */; };
+		7350E69C2AFEEA5800A225C4 /* SaveNewCardCategoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E69B2AFEEA5800A225C4 /* SaveNewCardCategoryUseCase.swift */; };
 		7350E6A32AFEEB2D00A225C4 /* HomeViewViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6A22AFEEB2D00A225C4 /* HomeViewViewContent.swift */; };
 		7350E6AE2AFF0BE700A225C4 /* MainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6AD2AFF0BE700A225C4 /* MainStorage.swift */; };
-		7350E6B32AFF0CA900A225C4 /* FlashCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6B22AFF0CA900A225C4 /* FlashCardModel.swift */; };
+		7350E6B32AFF0CA900A225C4 /* FlashCardCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6B22AFF0CA900A225C4 /* FlashCardCategoryModel.swift */; };
 		7350E6CD2AFF33B800A225C4 /* HomeViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6CC2AFF33B800A225C4 /* HomeViewBuilder.swift */; };
 		7350E6D52AFF357B00A225C4 /* MainButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6D42AFF357B00A225C4 /* MainButtonStyle.swift */; };
 		7350E6DE2AFF369E00A225C4 /* PlusButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6DD2AFF369E00A225C4 /* PlusButtonStyle.swift */; };
@@ -64,11 +64,11 @@
 		7350E65C2AFD366700A225C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7350E6872AFED86000A225C4 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
 		7350E68C2AFEDF8B00A225C4 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
-		7350E6932AFEEA3C00A225C4 /* GetCardsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCardsUseCase.swift; sourceTree = "<group>"; };
-		7350E69B2AFEEA5800A225C4 /* SaveNewCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNewCardUseCase.swift; sourceTree = "<group>"; };
+		7350E6932AFEEA3C00A225C4 /* GetCardCategoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCardCategoriesUseCase.swift; sourceTree = "<group>"; };
+		7350E69B2AFEEA5800A225C4 /* SaveNewCardCategoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNewCardCategoryUseCase.swift; sourceTree = "<group>"; };
 		7350E6A22AFEEB2D00A225C4 /* HomeViewViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewContent.swift; sourceTree = "<group>"; };
 		7350E6AD2AFF0BE700A225C4 /* MainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStorage.swift; sourceTree = "<group>"; };
-		7350E6B22AFF0CA900A225C4 /* FlashCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardModel.swift; sourceTree = "<group>"; };
+		7350E6B22AFF0CA900A225C4 /* FlashCardCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardCategoryModel.swift; sourceTree = "<group>"; };
 		7350E6CC2AFF33B800A225C4 /* HomeViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBuilder.swift; sourceTree = "<group>"; };
 		7350E6D42AFF357B00A225C4 /* MainButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonStyle.swift; sourceTree = "<group>"; };
 		7350E6DD2AFF369E00A225C4 /* PlusButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonStyle.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		7350E66B2AFD82FC00A225C4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7350E6B22AFF0CA900A225C4 /* FlashCardModel.swift */,
+				7350E6B22AFF0CA900A225C4 /* FlashCardCategoryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,8 +216,8 @@
 		7350E6912AFEEA1700A225C4 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				7350E6932AFEEA3C00A225C4 /* GetCardsUseCase.swift */,
-				7350E69B2AFEEA5800A225C4 /* SaveNewCardUseCase.swift */,
+				7350E6932AFEEA3C00A225C4 /* GetCardCategoriesUseCase.swift */,
+				7350E69B2AFEEA5800A225C4 /* SaveNewCardCategoryUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -384,12 +384,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7350E6942AFEEA3C00A225C4 /* GetCardsUseCase.swift in Sources */,
+				7350E6942AFEEA3C00A225C4 /* GetCardCategoriesUseCase.swift in Sources */,
 				7350E6DE2AFF369E00A225C4 /* PlusButtonStyle.swift in Sources */,
 				738849F32B1003AB00735E64 /* FontExtension.swift in Sources */,
 				7350E6882AFED86000A225C4 /* FlashCardView.swift in Sources */,
-				7350E69C2AFEEA5800A225C4 /* SaveNewCardUseCase.swift in Sources */,
-				7350E6B32AFF0CA900A225C4 /* FlashCardModel.swift in Sources */,
+				7350E69C2AFEEA5800A225C4 /* SaveNewCardCategoryUseCase.swift in Sources */,
+				7350E6B32AFF0CA900A225C4 /* FlashCardCategoryModel.swift in Sources */,
 				733DADBE2B15394B00E303DC /* FlashCardsView.swift in Sources */,
 				7350E6402AFD366300A225C4 /* HomeView.swift in Sources */,
 				7350E68D2AFEDF8B00A225C4 /* HomeViewViewModel.swift in Sources */,
