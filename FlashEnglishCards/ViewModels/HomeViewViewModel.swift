@@ -12,6 +12,7 @@ class HomeViewViewModel: ObservableObject {
     
     @Published var isSheetPresented: Bool = false
     @Published var newCardTittle: String = ""
+    @Published var moreInfoText: String = ""
     
     @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardModel(text: "")])
     

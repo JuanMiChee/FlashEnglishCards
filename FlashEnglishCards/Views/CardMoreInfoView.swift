@@ -21,11 +21,12 @@ struct CardMoreInfoView: View {
             }
             .padding(.top)
             Spacer()
-            Image("engranaje")
-                .padding([.bottom, .trailing], 20)//Lets pretend this is a star for now
+            Image(systemName: "star.fill")
+                .foregroundColor(.yellow)
+                .padding([.bottom, .trailing], 30)
         }
         .frame(minHeight: 500, maxHeight: 500)
-        .background(Color.red)
+        .background(Color.white)
         .cornerRadius(20)
         .padding()
     }

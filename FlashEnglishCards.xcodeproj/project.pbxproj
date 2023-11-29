@@ -25,12 +25,9 @@
 		7350E6CD2AFF33B800A225C4 /* HomeViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6CC2AFF33B800A225C4 /* HomeViewBuilder.swift */; };
 		7350E6D52AFF357B00A225C4 /* MainButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6D42AFF357B00A225C4 /* MainButtonStyle.swift */; };
 		7350E6DE2AFF369E00A225C4 /* PlusButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E6DD2AFF369E00A225C4 /* PlusButtonStyle.swift */; };
-<<<<<<< Updated upstream
-=======
 		738849F32B1003AB00735E64 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738849F22B1003AB00735E64 /* FontExtension.swift */; };
 		738849F52B10052D00735E64 /* FlashCardSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738849F42B10052D00735E64 /* FlashCardSectionView.swift */; };
 		73D0903E2B053B26007526A1 /* CardMoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D0903D2B053B26007526A1 /* CardMoreInfoView.swift */; };
->>>>>>> Stashed changes
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,12 +72,9 @@
 		7350E6CC2AFF33B800A225C4 /* HomeViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBuilder.swift; sourceTree = "<group>"; };
 		7350E6D42AFF357B00A225C4 /* MainButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonStyle.swift; sourceTree = "<group>"; };
 		7350E6DD2AFF369E00A225C4 /* PlusButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonStyle.swift; sourceTree = "<group>"; };
-<<<<<<< Updated upstream
-=======
 		738849F22B1003AB00735E64 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		738849F42B10052D00735E64 /* FlashCardSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardSectionView.swift; sourceTree = "<group>"; };
 		73D0903D2B053B26007526A1 /* CardMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMoreInfoView.swift; sourceTree = "<group>"; };
->>>>>>> Stashed changes
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,13 +197,10 @@
 				7350E63F2AFD366300A225C4 /* HomeView.swift */,
 				7350E63D2AFD366300A225C4 /* FlashEnglishCardsApp.swift */,
 				7350E6872AFED86000A225C4 /* FlashCardView.swift */,
-<<<<<<< Updated upstream
-=======
 				73D0903D2B053B26007526A1 /* CardMoreInfoView.swift */,
 				738849F42B10052D00735E64 /* FlashCardSectionView.swift */,
 				733DADBB2B1538A400E303DC /* AddNewCategoryView.swift */,
 				733DADBD2B15394B00E303DC /* FlashCardsView.swift */,
->>>>>>> Stashed changes
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,11 +394,8 @@
 				7350E6402AFD366300A225C4 /* HomeView.swift in Sources */,
 				7350E68D2AFEDF8B00A225C4 /* HomeViewViewModel.swift in Sources */,
 				7350E6D52AFF357B00A225C4 /* MainButtonStyle.swift in Sources */,
-<<<<<<< Updated upstream
-=======
 				73D0903E2B053B26007526A1 /* CardMoreInfoView.swift in Sources */,
 				738849F52B10052D00735E64 /* FlashCardSectionView.swift in Sources */,
->>>>>>> Stashed changes
 				7350E63E2AFD366300A225C4 /* FlashEnglishCardsApp.swift in Sources */,
 				7350E6CD2AFF33B800A225C4 /* HomeViewBuilder.swift in Sources */,
 				7350E6AE2AFF0BE700A225C4 /* MainStorage.swift in Sources */,
