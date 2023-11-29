@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FlashCardModel: Identifiable, Encodable, Decodable {
+struct FlashCardCategoryModel: Identifiable, Encodable, Decodable {
     let text: String
     var id: String { text }
 }

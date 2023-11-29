@@ -14,13 +14,13 @@ class HomeViewViewModel: ObservableObject {
     @Published var newCardTittle: String = ""
     @Published var moreInfoText: String = ""
     
-    @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardModel(text: "")])
+    @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardCategoryModel(text: "")])
     
     let dependencies: Dependencies
     
     struct Dependencies {
-        let getCards: GetCardsUseCaseProtocol
-        let saveCards: SaveNewCardUseCaseProtocol
+        let getCards: GetCardCategoriesUseCaseProtocol
+        let saveCards: SaveNewCardCategoryUseCaseProtocol
     }
     
     init(dependencies: Dependencies) {
@@ -32,13 +32,13 @@ class HomeViewViewModel: ObservableObject {
         viewContent.texts = dependencies.getCards.execute()
     }
     
-    private func saveNewCard(card: FlashCardModel) {
+    private func saveNewCard(card: FlashCardCategoryModel) {
         dependencies.saveCards.execute(card: card)
     }
     
     func doneButtonTrigger() {
         isSheetPresented = false
-        saveNewCard(card: FlashCardModel(text: newCardTittle))
+        saveNewCard(card: FlashCardCategoryModel(text: newCardTittle))
         asignCardsToView()
         newCardTittle = ""
     }
