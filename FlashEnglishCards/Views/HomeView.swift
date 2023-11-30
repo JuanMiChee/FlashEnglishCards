@@ -33,6 +33,9 @@ struct HomeView: View {
                 }
                 plusButtonView
             }
+            .onAppear {
+                viewModel.asignCardsToView()
+            }
             .sheet(isPresented: $viewModel.isSheetPresented) {
                 //Sheet view, you can also see it below
                 sheetView
@@ -62,44 +65,11 @@ struct HomeView: View {
     
     //Here is the sheet view
     var sheetView: some View {
-        AddNewCategoryView()
-    }
-    
-    var addNewCardSheet: some View {
-        ZStack {
-            Color("mainBackgroundColour")
-            VStack {
-                Spacer()
-                Spacer()
-                Text("Add your category tittle.")
-                    .font(.system(size: 30, weight: .bold))
-                    .foregroundColor(Color(.white))
-                TextField(
-                    "card name",
-                    text: $viewModel.newCardTittle
-                )
-                .padding()
-                .background(Color(.white))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(.gray, lineWidth: 5)
-                )
-                .cornerRadius(20)
-                .padding(.horizontal, 20)
-                .padding(.bottom)
-                Spacer()
-                Button("Save") {
-                    
-                }
-                .buttonStyle(MainButtonStyle())
-                Button("Cancel") {
-                    
-                }
-                .buttonStyle(MainButtonStyle())
-                .padding(.bottom, 30)
-            }
-        }
-        .ignoresSafeArea()
+        AddNewCategoryView(cancelCompletion: {viewModel.cancelButtonTrigger()},
+                           saveCompletion: { title in
+            print(title)
+            viewModel.saveButtonTrigger(title: title)
+        })
     }
 }
 

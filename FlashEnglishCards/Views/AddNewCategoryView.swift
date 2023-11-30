@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct AddNewCategoryView: View {
-    @State var a = ""
+    var cancelCompletion: (() -> Void)
+    var saveCompletion: ((_ title: String) -> Void)
+    @State var categoryTitle: String = ""
+    
     var body: some View {
         ZStack {
             Color("mainBackgroundColour")
@@ -20,7 +23,7 @@ struct AddNewCategoryView: View {
                     .foregroundColor(Color(.white))
                 TextField(
                     "Category name",
-                    text: $a
+                    text: $categoryTitle
                 )
                 .padding()
                 .background(Color(.white))
@@ -33,11 +36,11 @@ struct AddNewCategoryView: View {
                 .padding(.bottom)
                 Spacer()
                 Button("Save") {
-                    
+                    saveCompletion(categoryTitle)
                 }
                 .buttonStyle(MainButtonStyle())
                 Button("Cancel") {
-                    
+                    cancelCompletion()
                 }
                 .buttonStyle(MainButtonStyle())
                 .padding(.bottom, 30)
@@ -48,5 +51,5 @@ struct AddNewCategoryView: View {
 }
 
 #Preview {
-    AddNewCategoryView()
+    AddNewCategoryView(cancelCompletion: {}, saveCompletion: {titulo in })
 }
