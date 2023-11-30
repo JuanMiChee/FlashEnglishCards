@@ -19,7 +19,7 @@ struct FlashCardView: View {
                 Spacer()
                 Text(text)
                     .font(.system(size: 40, weight: .bold))
-                    .foregroundColor(Color("mainFontColor"))
+                    .foregroundColor(Color("mainFontColour"))
                 Spacer()
             }
             .padding(.bottom)

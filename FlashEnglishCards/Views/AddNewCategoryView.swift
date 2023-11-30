@@ -11,7 +11,7 @@ struct AddNewCategoryView: View {
     @State var a = ""
     var body: some View {
         ZStack {
-            Color("mainBackgroundColor")
+            Color("mainBackgroundColour")
             VStack {
                 Spacer()
                 Spacer()

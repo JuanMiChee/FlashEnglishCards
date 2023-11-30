@@ -16,7 +16,7 @@ struct CardMoreInfoView: View {
                 Text("moreInfoTextas  asdas as as das das dasd as as d asd asd as asd ")
                     .font(.system(size: 20, weight: .bold))
                     .padding(40)
-                    .foregroundColor(Color("mainFontColor"))
+                    .foregroundColor(Color("mainFontColour"))
                 Spacer()
             }
             .padding(.top)

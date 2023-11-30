@@ -20,7 +20,7 @@ struct FlashCardSectionView: View {
                 VStack(alignment: .leading) {
                     Text(title)
                         .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(Color("mainFontColor"))
+                        .foregroundColor(Color("mainFontColour"))
                     ProgressView("", value: 49, total: 100)
                         .scaleEffect(x: 1, y: 2, anchor: .center)
                         .accentColor(progresBarColor)
@@ -33,7 +33,7 @@ struct FlashCardSectionView: View {
                     Image("threeDots")
                     Text("50/100")
                         .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(Color("mainFontColor"))
+                        .foregroundColor(Color("mainFontColour"))
                 }
                 .padding(.horizontal)
             }

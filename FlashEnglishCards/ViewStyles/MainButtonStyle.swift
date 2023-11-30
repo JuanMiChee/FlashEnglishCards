@@ -16,7 +16,7 @@ struct MainButtonStyle: ButtonStyle {
             .padding(10)
             .foregroundColor(.white)
             .padding(.horizontal, 30)
-            .background(Color("mainFontColor"))
+            .background(Color("mainFontColour"))
             .cornerRadius(20)
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
             .overlay(

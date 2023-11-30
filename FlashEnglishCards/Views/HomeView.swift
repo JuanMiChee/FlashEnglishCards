@@ -16,7 +16,7 @@ struct HomeView: View {
     var body: some View {
         TabView {
             ZStack {
-                Color("mainBackgroundColor")
+                Color("mainBackgroundColour")
                     .ignoresSafeArea()
                 VStack {
                     Text("Welcome to your flashcard app!")
@@ -67,7 +67,7 @@ struct HomeView: View {
     
     var addNewCardSheet: some View {
         ZStack {
-            Color("mainBackgroundColor")
+            Color("mainBackgroundColour")
             VStack {
                 Spacer()
                 Spacer()

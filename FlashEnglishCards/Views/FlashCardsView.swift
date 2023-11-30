@@ -14,7 +14,7 @@ struct FlashCardsView: View {
     
     var body: some View {
         ZStack {
-            Color("mainBackgroundColor")
+            Color("mainBackgroundColour")
             VStack {
                 HStack {
                     Text("aaaaa")
