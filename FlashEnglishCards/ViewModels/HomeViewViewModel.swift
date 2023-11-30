@@ -11,7 +11,7 @@ import UIKit
 class HomeViewViewModel: ObservableObject {
     
     @Published var isSheetPresented: Bool = false
-    @Published var newCardTittle: String = ""
+    @Published var newCardCategoryTittle: String = ""
     @Published var moreInfoText: String = ""
     
     @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardCategoryModel(text: "")])
@@ -36,16 +36,16 @@ class HomeViewViewModel: ObservableObject {
         dependencies.saveCards.execute(card: card)
     }
     
-    func doneButtonTrigger() {
+    func saveButtonTrigger(title: String) {
         isSheetPresented = false
-        saveNewCard(card: FlashCardCategoryModel(text: newCardTittle))
+        saveNewCard(card: FlashCardCategoryModel(text: title))
         asignCardsToView()
-        newCardTittle = ""
+        newCardCategoryTittle = ""
     }
     
     func cancelButtonTrigger() {
         isSheetPresented = false
-        newCardTittle = ""
+        newCardCategoryTittle = ""
     }
     
     func AddCardButtonTrigger() {
