@@ -27,7 +27,6 @@ struct HomeView: View {
                     ScrollView {
                         ForEach(viewModel.viewContent.texts) { text in
                             FlashCardSectionView(title: text.text,
-                                                 progresBarColor: Color("Red"),
                                                  progresBarCurrentProgress: text.numberOfCards,
                                                  progressBarFinishProgress: text.numberOfCompletedCards)
                         }
