@@ -14,7 +14,10 @@ class HomeViewViewModel: ObservableObject {
     @Published var newCardCategoryTittle: String = ""
     @Published var moreInfoText: String = ""
     
-    @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardCategoryModel(text: "")])
+    @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardCategoryModel(text: "",
+                                                                                                         numberOfCards: 0,
+                                                                                                         numberOfCompletedCards: 0,
+                                                                                                         progressBarColor: "red")])
     
     let dependencies: Dependencies
     
@@ -36,9 +39,12 @@ class HomeViewViewModel: ObservableObject {
         dependencies.saveCards.execute(card: card)
     }
     
-    func saveButtonTrigger(title: String) {
+    func saveButtonTrigger(title: String, numberofCards: Int, numberOfCompletedCards: Int) {
         isSheetPresented = false
-        saveNewCard(card: FlashCardCategoryModel(text: title))
+        saveNewCard(card: FlashCardCategoryModel(text: title,
+                                                 numberOfCards: numberofCards,
+                                                 numberOfCompletedCards: numberOfCompletedCards,
+                                                 progressBarColor: "red"))
         asignCardsToView()
         newCardCategoryTittle = ""
     }

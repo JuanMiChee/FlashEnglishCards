@@ -26,7 +26,10 @@ struct HomeView: View {
                         .multilineTextAlignment(.center)
                     ScrollView {
                         ForEach(viewModel.viewContent.texts) { text in
-                            FlashCardSectionView(title: text.text, progresBarColor: .red, progresBarCurrentProgress: 50, progressBarFinishProgress: 10)
+                            FlashCardSectionView(title: text.text,
+                                                 progresBarColor: Color("Red"),
+                                                 progresBarCurrentProgress: text.numberOfCards,
+                                                 progressBarFinishProgress: text.numberOfCompletedCards)
                         }
                         
                     }
@@ -37,7 +40,6 @@ struct HomeView: View {
                 viewModel.asignCardsToView()
             }
             .sheet(isPresented: $viewModel.isSheetPresented) {
-                //Sheet view, you can also see it below
                 sheetView
             }
             .tabItem {
@@ -67,8 +69,7 @@ struct HomeView: View {
     var sheetView: some View {
         AddNewCategoryView(cancelCompletion: {viewModel.cancelButtonTrigger()},
                            saveCompletion: { title in
-            print(title)
-            viewModel.saveButtonTrigger(title: title)
+            viewModel.saveButtonTrigger(title: title, numberofCards: 0, numberOfCompletedCards: 0)
         })
     }
 }
