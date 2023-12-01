@@ -13,6 +13,7 @@ class HomeViewViewModel: ObservableObject {
     @Published var isSheetPresented: Bool = false
     @Published var newCardCategoryTittle: String = ""
     @Published var moreInfoText: String = ""
+    @Published var navigateToCardsView: Bool = false
     
     @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardCategoryModel(text: "",
                                                                                                          numberOfCards: 0,
@@ -20,6 +21,8 @@ class HomeViewViewModel: ObservableObject {
                                                                                                          progressBarColor: "red")])
     
     let dependencies: Dependencies
+    
+    var currentCategoryTitle: String = ""
     
     struct Dependencies {
         let getCards: GetCardCategoriesUseCaseProtocol
