@@ -12,7 +12,6 @@ struct FlashCardSectionView: View {
     var progresBarColor: Color
     var progresBarCurrentProgress: Int
     var progressBarFinishProgress: Int
-    
     var body: some View {
         ZStack {
             Color(.white)
@@ -21,9 +20,9 @@ struct FlashCardSectionView: View {
                     Text(title)
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(Color("mainFontColour"))
-                    ProgressView("", value: 49, total: 100)
+                    ProgressView("", value: Double(progresBarCurrentProgress), total: 100)
                         .scaleEffect(x: 1, y: 2, anchor: .center)
-                        .accentColor(progresBarColor)
+                        .accentColor(Color.random())
                         .padding(.top, -25)
                 }
                 .padding(.bottom)
@@ -31,7 +30,7 @@ struct FlashCardSectionView: View {
                 Spacer()
                 VStack(alignment: .trailing) {
                     Image("threeDots")
-                    Text("50/100")
+                    Text("\(progresBarCurrentProgress)/\(progressBarFinishProgress)")
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(Color("mainFontColour"))
                 }
