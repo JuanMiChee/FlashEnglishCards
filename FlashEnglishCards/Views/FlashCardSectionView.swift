@@ -11,6 +11,7 @@ struct FlashCardSectionView: View {
     var title: String
     var progresBarCurrentProgress: Int
     var progressBarFinishProgress: Int
+    var sectionSettingsClosure: () -> Void
     @State var progressBarMaxValueProceced: Int = 0
     
     var body: some View {
@@ -32,6 +33,9 @@ struct FlashCardSectionView: View {
                 Spacer()
                 VStack(alignment: .trailing) {
                     Image("threeDots")
+                        .onTapGesture {
+                            sectionSettingsClosure()
+                        }
                     Text("\(progresBarCurrentProgress)/\(progressBarFinishProgress)")
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(Color("mainFontColour"))
@@ -57,5 +61,6 @@ struct FlashCardSectionView: View {
 #Preview {
     FlashCardSectionView(title: "",
                          progresBarCurrentProgress: 20,
-                         progressBarFinishProgress: 30)
+                         progressBarFinishProgress: 30, 
+                         sectionSettingsClosure: {})
 }

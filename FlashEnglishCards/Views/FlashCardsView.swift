@@ -12,12 +12,16 @@ struct FlashCardsView: View {
     @State private var offsetX: CGFloat = 0
     @State private var opacity: Double = 1.0
     
+    var categoryTitle: String
+    var currentBarProgress: Double
+    var finalBarProgress: Double
+    
     var body: some View {
         ZStack {
             Color("mainBackgroundColour")
             VStack {
                 HStack {
-                    Text("aaaaa")
+                    Text(categoryTitle)
                         .font(.system(size: 25, weight: .bold))
                         .foregroundColor(.white)
                     Spacer()
@@ -25,10 +29,10 @@ struct FlashCardsView: View {
                         .font(.system(size: 45, weight: .bold))
                         .foregroundColor(.white)
                 }
-                .padding(40)
+                .padding([.top, .leading, .trailing], 48)
                 Spacer()
                 
-                FlashCardView(text: "paaaaa")
+                FlashCardView(text: "example card")
                     .rotationEffect(.degrees(rotationAngle))
                     .offset(x: offsetX)
                     .opacity(opacity)
@@ -40,7 +44,7 @@ struct FlashCardsView: View {
                         }
                     }
                 Spacer()
-                ProgressView("", value: 49, total: 100)
+                ProgressView("", value: currentBarProgress, total: finalBarProgress)
                     .scaleEffect(x: 1, y: 2, anchor: .center)
                     .accentColor(.red)
                     .padding(.top, -25)
@@ -50,9 +54,11 @@ struct FlashCardsView: View {
             }
         }
         .ignoresSafeArea()
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: CustomBackButtonView())
     }
 }
 
 #Preview {
-    FlashCardsView()
+    FlashCardsView(categoryTitle: "aaa", currentBarProgress: 1, finalBarProgress: 6)
 }

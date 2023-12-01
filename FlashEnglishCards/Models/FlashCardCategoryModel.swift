@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct FlashCardCategoryModel: Identifiable, Encodable, Decodable {
+struct FlashCardCategoryModel: Identifiable, Encodable, Decodable, Equatable {
     let text: String
     let numberOfCards: Int
     let numberOfCompletedCards: Int
