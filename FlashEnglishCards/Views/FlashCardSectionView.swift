@@ -9,9 +9,10 @@ import SwiftUI
 
 struct FlashCardSectionView: View {
     var title: String
-    var progresBarColor: Color
     var progresBarCurrentProgress: Int
     var progressBarFinishProgress: Int
+    @State var progressBarMaxValueProceced: Int = 0
+    
     var body: some View {
         ZStack {
             Color(.white)
@@ -20,7 +21,8 @@ struct FlashCardSectionView: View {
                     Text(title)
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(Color("mainFontColour"))
-                    ProgressView("", value: Double(progresBarCurrentProgress), total: 100)
+                    ProgressView("", value: Double(progresBarCurrentProgress),
+                                 total: Double(progressBarMaxValueProceced))
                         .scaleEffect(x: 1, y: 2, anchor: .center)
                         .accentColor(Color.random())
                         .padding(.top, -25)
@@ -38,6 +40,13 @@ struct FlashCardSectionView: View {
             }
             
         }
+        .onAppear {
+            if progressBarFinishProgress <= 0 {
+                progressBarMaxValueProceced = 1
+            } else {
+                progressBarMaxValueProceced = progressBarFinishProgress
+            }
+        }
         .frame(minHeight: 80, maxHeight: 80)
         .cornerRadius(20)
         .padding()
@@ -46,8 +55,7 @@ struct FlashCardSectionView: View {
 }
 
 #Preview {
-    FlashCardSectionView(title: "", 
-                         progresBarColor: .red,
-                         progresBarCurrentProgress: 1,
-                         progressBarFinishProgress: 1)
+    FlashCardSectionView(title: "",
+                         progresBarCurrentProgress: 20,
+                         progressBarFinishProgress: 30)
 }
