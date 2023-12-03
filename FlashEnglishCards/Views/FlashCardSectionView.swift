@@ -22,8 +22,8 @@ struct FlashCardSectionView: View {
                     Text(title)
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(Color("mainFontColour"))
-                    ProgressView("", value: Double(progresBarCurrentProgress),
-                                 total: Double(progressBarMaxValueProceced))
+                    ProgressView("", value: Double(50),
+                                 total: Double(100))
                         .scaleEffect(x: 1, y: 2, anchor: .center)
                         .accentColor(Color.random())
                         .padding(.top, -25)

@@ -9,7 +9,16 @@ import Foundation
 import SwiftUI
 
 struct FlashCardCategoryModel: Identifiable, Encodable, Decodable, Equatable {
+    
+    static func == (lhs: FlashCardCategoryModel, rhs: FlashCardCategoryModel) -> Bool {
+        return lhs.text == rhs.text &&
+        lhs.numberOfCards == rhs.numberOfCards &&
+        lhs.numberOfCompletedCards == rhs.numberOfCompletedCards &&
+        lhs.progressBarColor == rhs.progressBarColor
+    }
+    
     let text: String
+    let flashCards: [FlashCardModel]
     let numberOfCards: Int
     let numberOfCompletedCards: Int
     let progressBarColor: String
