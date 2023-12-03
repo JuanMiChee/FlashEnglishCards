@@ -11,6 +11,7 @@
 		733DADBE2B15394B00E303DC /* FlashCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DADBD2B15394B00E303DC /* FlashCardsView.swift */; };
 		733DADCE2B19897C00E303DC /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DADCD2B19897C00E303DC /* ColorExtension.swift */; };
 		733DADD02B1A8F9F00E303DC /* CustomBackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DADCF2B1A8F9F00E303DC /* CustomBackButtonView.swift */; };
+		733DADD22B1A990D00E303DC /* FlashCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DADD12B1A990D00E303DC /* FlashCardModel.swift */; };
 		7350E63E2AFD366300A225C4 /* FlashEnglishCardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E63D2AFD366300A225C4 /* FlashEnglishCardsApp.swift */; };
 		7350E6402AFD366300A225C4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7350E63F2AFD366300A225C4 /* HomeView.swift */; };
 		7350E6422AFD366600A225C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7350E6412AFD366600A225C4 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		733DADBD2B15394B00E303DC /* FlashCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsView.swift; sourceTree = "<group>"; };
 		733DADCD2B19897C00E303DC /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		733DADCF2B1A8F9F00E303DC /* CustomBackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButtonView.swift; sourceTree = "<group>"; };
+		733DADD12B1A990D00E303DC /* FlashCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardModel.swift; sourceTree = "<group>"; };
 		7350E63A2AFD366300A225C4 /* FlashEnglishCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashEnglishCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7350E63D2AFD366300A225C4 /* FlashEnglishCardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashEnglishCardsApp.swift; sourceTree = "<group>"; };
 		7350E63F2AFD366300A225C4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				7350E6B22AFF0CA900A225C4 /* FlashCardCategoryModel.swift */,
+				733DADD12B1A990D00E303DC /* FlashCardModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				7350E68D2AFEDF8B00A225C4 /* HomeViewViewModel.swift in Sources */,
 				7350E6D52AFF357B00A225C4 /* MainButtonStyle.swift in Sources */,
 				73D0903E2B053B26007526A1 /* CardMoreInfoView.swift in Sources */,
+				733DADD22B1A990D00E303DC /* FlashCardModel.swift in Sources */,
 				733DADD02B1A8F9F00E303DC /* CustomBackButtonView.swift in Sources */,
 				738849F52B10052D00735E64 /* FlashCardSectionView.swift in Sources */,
 				7350E63E2AFD366300A225C4 /* FlashEnglishCardsApp.swift in Sources */,

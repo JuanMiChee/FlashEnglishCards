@@ -16,6 +16,7 @@ class HomeViewViewModel: ObservableObject {
     @Published var navigateToCardsView: Bool = false
     
     @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardCategoryModel(text: "",
+                                                                                                         flashCards: [],
                                                                                                          numberOfCards: 0,
                                                                                                          numberOfCompletedCards: 0,
                                                                                                          progressBarColor: "red")])
@@ -38,13 +39,14 @@ class HomeViewViewModel: ObservableObject {
         viewContent.texts = dependencies.getCards.execute()
     }
     
-    private func saveNewCard(card: FlashCardCategoryModel) {
-        dependencies.saveCards.execute(card: card)
+    private func saveNewCardCategory(cardCategory: FlashCardCategoryModel) {
+        dependencies.saveCards.execute(cardCategory: cardCategory)
     }
     
     func saveButtonTrigger(title: String, numberofCards: Int, numberOfCompletedCards: Int) {
         isSheetPresented = false
-        saveNewCard(card: FlashCardCategoryModel(text: title,
+        saveNewCardCategory(cardCategory: FlashCardCategoryModel(text: title,
+                                                 flashCards: [],
                                                  numberOfCards: numberofCards,
                                                  numberOfCompletedCards: numberOfCompletedCards,
                                                  progressBarColor: "red"))
