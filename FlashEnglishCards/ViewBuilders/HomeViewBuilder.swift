@@ -13,8 +13,10 @@ extension HomeView {
         let storage = MainStorage()
         let getCardsUseCase = GetCardCategoriesUseCase(storage: storage)
         let saveCardsUseCase = SaveNewCardCategoryUseCase(storage: storage)
+        let saveCurrentCardsUseCase = SaveCurrentCardsCategoryUseCase(storage: storage)
         
         return .init(viewModel: .init(dependencies: .init(getCards: getCardsUseCase,
-                                                          saveCards: saveCardsUseCase)))
+                                                          saveCards: saveCardsUseCase,
+                                                          saveCurrentCards: saveCurrentCardsUseCase)))
     }
 }

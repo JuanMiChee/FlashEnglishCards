@@ -17,7 +17,7 @@ struct FlashCardCategoryModel: Identifiable, Encodable, Decodable, Equatable {
         lhs.progressBarColor == rhs.progressBarColor
     }
     
-    let text: String
+    var text: String
     let flashCards: [FlashCardModel]
     let numberOfCards: Int
     let numberOfCompletedCards: Int

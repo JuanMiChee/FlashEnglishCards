@@ -10,5 +10,6 @@ import Foundation
 struct FlashCardModel: Decodable, Encodable {
     let title: String
     let isFavorite: Bool
-    let isReviewed: Bool
+    let seenCount: Int
+    let isLearned: Bool
 }

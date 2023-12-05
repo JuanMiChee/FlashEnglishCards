@@ -27,6 +27,15 @@ struct MainStorage: StorageProtocol {
         }
     }
     
+    func saveCurrentCardsCategory(cards: [FlashCardCategoryModel]) {
+        do {
+            let encoder = JSONEncoder()
+            if let encodedFlashCardArray = try? encoder.encode(cards) {
+                defaults.set(encodedFlashCardArray, forKey: "flashCardCategoriesArray")
+            }
+        }
+    }
+    
     func getCardCateogries() -> [FlashCardCategoryModel] {
         var returnableCardsArray: [FlashCardCategoryModel] = []
         

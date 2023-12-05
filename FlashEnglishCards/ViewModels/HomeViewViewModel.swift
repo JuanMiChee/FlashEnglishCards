@@ -10,10 +10,14 @@ import UIKit
 
 class HomeViewViewModel: ObservableObject {
     
-    @Published var isSheetPresented: Bool = false
+    @Published var isAddNewCardSheetShown: Bool = false
+    @Published var isEditCardSheetShown: Bool = false
+    
     @Published var newCardCategoryTittle: String = ""
     @Published var moreInfoText: String = ""
     @Published var navigateToCardsView: Bool = false
+    
+    var currentCardIndex: Int = 0
     
     @Published var viewContent: HomeViewViewContent = HomeViewViewContent(texts: [FlashCardCategoryModel(text: "",
                                                                                                          flashCards: [],
@@ -28,6 +32,7 @@ class HomeViewViewModel: ObservableObject {
     struct Dependencies {
         let getCards: GetCardCategoriesUseCaseProtocol
         let saveCards: SaveNewCardCategoryUseCaseProtocol
+        let saveCurrentCards: SaveCurrentCardsCategoryUseCaseProtocol
     }
     
     init(dependencies: Dependencies) {
@@ -43,8 +48,18 @@ class HomeViewViewModel: ObservableObject {
         dependencies.saveCards.execute(cardCategory: cardCategory)
     }
     
+    func saveCurrentCards() {
+        dependencies.saveCurrentCards.execute(cards: viewContent.texts.map({ card in
+            FlashCardCategoryModel(text: card.text,
+                                   flashCards: [],
+                                   numberOfCards: 0,
+                                   numberOfCompletedCards: 0,
+                                   progressBarColor: "red")
+        }))
+    }
+    
     func saveButtonTrigger(title: String, numberofCards: Int, numberOfCompletedCards: Int) {
-        isSheetPresented = false
+        isAddNewCardSheetShown = false
         saveNewCardCategory(cardCategory: FlashCardCategoryModel(text: title,
                                                  flashCards: [],
                                                  numberOfCards: numberofCards,
@@ -55,11 +70,16 @@ class HomeViewViewModel: ObservableObject {
     }
     
     func cancelButtonTrigger() {
-        isSheetPresented = false
+        isAddNewCardSheetShown = false
+        isEditCardSheetShown = false
         newCardCategoryTittle = ""
     }
     
-    func AddCardButtonTrigger() {
-        isSheetPresented = true
+    func AddCardCategoryButtonTrigger() {
+        isAddNewCardSheetShown = true
+    }
+    
+    func edditCardCategoryTrigger() {
+        isEditCardSheetShown = true
     }
 }

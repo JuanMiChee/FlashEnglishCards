@@ -12,36 +12,45 @@ struct HomeView: View {
     
     @StateObject var viewModel: HomeViewViewModel
     
+    var someClosureLmao: () -> Void = {}
     
     var body: some View {
-        NavigationStack {
-            TabView {
+        
+        TabView {
+            NavigationStack {
                 ZStack {
                     Color("mainBackgroundColour")
                         .ignoresSafeArea()
-                    VStack {
+                    VStack() {
                         Text("Welcome to your flashcard app!")
                             .font(.system(size: 40, weight: .bold))
                             .padding()
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                         ScrollView {
-                            ForEach(viewModel.viewContent.texts) { text in
-                                FlashCardSectionView(title: text.text,
-                                                     progresBarCurrentProgress: text.numberOfCards,
-                                                     progressBarFinishProgress: text.numberOfCompletedCards,
-                                                     sectionSettingsClosure: {})
-                                .onTapGesture {
-                                    if let index = viewModel.viewContent.texts.firstIndex(of: text) {
-                                        viewModel.currentCategoryTitle = viewModel.viewContent.texts[index].text
+                            VStack {
+                                ForEach(viewModel.viewContent.texts) { text in
+                                    FlashCardSectionView(title: text.text,
+                                                         progresBarCurrentProgress: text.numberOfCards,
+                                                         progressBarFinishProgress: text.numberOfCompletedCards,
+                                                         sectionEditClosure: { if let index = viewModel.viewContent.texts.firstIndex(of: text) {
+                                                             viewModel.currentCardIndex = index
+                                                             viewModel.isEditCardSheetShown = true}},
+                                                         sectionDeleteClosure: { if let index = viewModel.viewContent.texts.firstIndex(of: text) {
+                                                             viewModel.viewContent.texts.remove(at: index)}
+                                                             viewModel.saveCurrentCards()})
+                                    .onTapGesture {
+                                        if let index = viewModel.viewContent.texts.firstIndex(of: text) {
+                                            viewModel.currentCategoryTitle = viewModel.viewContent.texts[index].text
+                                        }
+                                        viewModel.navigateToCardsView = true
                                     }
-                                    viewModel.navigateToCardsView = true
                                 }
                             }
                         }
                         NavigationLink(destination: FlashCardsView(categoryTitle: viewModel.currentCategoryTitle,
                                                                    currentBarProgress: 1,
-                                                                   finalBarProgress: 20), 
+                                                                   finalBarProgress: 20),
                                        isActive: $viewModel.navigateToCardsView) { EmptyView() }
                     }
                     plusButtonView
@@ -49,8 +58,12 @@ struct HomeView: View {
                 .onAppear {
                     viewModel.asignCardsToView()
                 }
-                .sheet(isPresented: $viewModel.isSheetPresented) {
-                    sheetView
+                .sheet(isPresented: $viewModel.isAddNewCardSheetShown) {
+                    addNewCategorySheet
+                }
+                
+                .sheet(isPresented: $viewModel.isEditCardSheetShown) {
+                    editCategorySheet
                 }
                 .tabItem {
                     Image(systemName: "house")
@@ -60,11 +73,8 @@ struct HomeView: View {
                 .toolbarBackground(.visible, for: .tabBar)
                 .toolbarColorScheme(.light, for: .tabBar)
             }
-            
-                        
-                        
         }
-        .navigationBarBackButtonHidden(true) 
+        .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: CustomBackButtonView())
         .navigationTitle("Inicio")
     }
@@ -75,7 +85,7 @@ struct HomeView: View {
             HStack {
                 Spacer()
                 Button("+") {
-                    viewModel.AddCardButtonTrigger()
+                    viewModel.AddCardCategoryButtonTrigger()
                 }
                 .buttonStyle(PlusButtonStyle(desiredBackgroundColor: Color(UIColor.white)))
             }
@@ -83,10 +93,23 @@ struct HomeView: View {
     }
     
     //Here is the sheet view
-    var sheetView: some View {
+    var addNewCategorySheet: some View {
         AddNewCategoryView(cancelCompletion: {viewModel.cancelButtonTrigger()},
                            saveCompletion: { title in
-            viewModel.saveButtonTrigger(title: title, numberofCards: 0, numberOfCompletedCards: 0)
+            viewModel.saveButtonTrigger(title: title,
+                                        numberofCards: 0,
+                                        numberOfCompletedCards: 0)
+        })
+    }
+    
+    var editCategorySheet: some View {
+        EditCategoryView(cancelCompletion: { 
+            viewModel.cancelButtonTrigger()
+        },
+                         saveCompletion: { title in
+            viewModel.viewContent.texts[viewModel.currentCardIndex].text = title
+            viewModel.saveCurrentCards()
+            viewModel.isEditCardSheetShown = false
         })
     }
 }
