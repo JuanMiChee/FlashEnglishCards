@@ -21,6 +21,9 @@ struct CustomBackButtonView: View {
     }
 }
 
-#Preview {
-    CustomBackButtonView()
+@available(iOS 17.0, *)
+struct CustomBackButtonView_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomBackButtonView()
+    }
 }

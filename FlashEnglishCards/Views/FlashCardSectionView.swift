@@ -7,12 +7,18 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct FlashCardSectionView: View {
     var title: String
     var progresBarCurrentProgress: Int
     var progressBarFinishProgress: Int
-    var sectionSettingsClosure: () -> Void
+    var sectionEditClosure: () -> Void
+    var sectionDeleteClosure: () -> Void
+    
     @State var progressBarMaxValueProceced: Int = 0
+    
+    @State var showEditAlert: Bool = false
+    @State var showDeleteAlert: Bool = false
     
     var body: some View {
         ZStack {
@@ -22,8 +28,8 @@ struct FlashCardSectionView: View {
                     Text(title)
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(Color("mainFontColour"))
-                    ProgressView("", value: Double(50),
-                                 total: Double(100))
+                    ProgressView("", value: Double(progresBarCurrentProgress),
+                                 total: Double(progressBarMaxValueProceced))
                         .scaleEffect(x: 1, y: 2, anchor: .center)
                         .accentColor(Color.random())
                         .padding(.top, -25)
@@ -32,16 +38,31 @@ struct FlashCardSectionView: View {
                 .padding(.horizontal)
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Image("threeDots")
-                        .onTapGesture {
-                            sectionSettingsClosure()
-                        }
+                    HStack {
+                        Image(systemName: "applepencil.and.scribble")
+                            .onTapGesture {
+                                showEditAlert = true
+                            }
+                        Image(systemName: "trash")
+                            .onTapGesture {
+                                showDeleteAlert = true
+                            }
+                    }
+                    
                     Text("\(progresBarCurrentProgress)/\(progressBarFinishProgress)")
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(Color("mainFontColour"))
                 }
                 .padding(.horizontal)
             }
+            .alert(Text("Want to edit this section?"), isPresented: $showEditAlert, actions: {
+                Button("Cancel") { }
+                Button("Edit") { sectionEditClosure() }
+            })
+            .alert(Text("Want to delete this section?"), isPresented: $showDeleteAlert, actions: {
+                Button("Cancel") { }
+                Button("delete") { sectionDeleteClosure() }
+            })
             
         }
         .onAppear {
@@ -57,10 +78,13 @@ struct FlashCardSectionView: View {
         
     }
 }
-
-#Preview {
-    FlashCardSectionView(title: "",
-                         progresBarCurrentProgress: 20,
-                         progressBarFinishProgress: 30, 
-                         sectionSettingsClosure: {})
+@available(iOS 17.0, *)
+struct FlashCardSectionView_Previews: PreviewProvider {
+    static var previews: some View {
+        FlashCardSectionView(title: "",
+                             progresBarCurrentProgress: 20,
+                             progressBarFinishProgress: 30,
+                             sectionEditClosure: {},
+                             sectionDeleteClosure: {})
+    }
 }
