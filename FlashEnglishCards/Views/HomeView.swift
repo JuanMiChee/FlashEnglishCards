@@ -106,9 +106,10 @@ struct HomeView: View {
         EditCategoryView(cancelCompletion: { 
             viewModel.cancelButtonTrigger()
         },
-                         saveCompletion: {
-            title in viewModel.viewContent.texts[viewModel.currentCardIndex].text = title
+                         saveCompletion: { title in
+            viewModel.viewContent.texts[viewModel.currentCardIndex].text = title
             viewModel.saveCurrentCards()
+            viewModel.isEditCardSheetShown = false
         })
     }
 }
