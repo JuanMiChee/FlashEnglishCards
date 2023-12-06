@@ -12,8 +12,9 @@ struct FlashCardView: View {
     var body: some View {
         VStack(alignment: .trailing) {
             
-            Image("engranaje")
-                .padding([.top, .trailing], 20)//Lets pretend this is a star for now
+            Image(systemName: "star")
+                .padding([.top, .trailing], 20)
+                .foregroundColor(.gray)
             Spacer()
             HStack {
                 Spacer()

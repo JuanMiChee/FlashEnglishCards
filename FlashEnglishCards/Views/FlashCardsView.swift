@@ -34,17 +34,22 @@ struct FlashCardsView: View {
                 .padding([.top, .leading, .trailing], 48)
                 Spacer()
                 
-                FlashCardView(text: viewModel.viewContent.texts.last?.title ?? "No more cards")
-                    .rotationEffect(.degrees(rotationAngle))
-                    .offset(x: offsetX)
-                    .opacity(opacity)
-                    .onTapGesture {
-                        withAnimation {
-                            rotationAngle += 45
-                            offsetX += 200
-                            opacity = 0
+                ZStack {
+                    backgroundCardsViewTwo
+                    backgroundCardsViewOne
+                    FlashCardView(text: viewModel.viewContent.texts.last?.title ?? "No more cards")
+                        .rotationEffect(.degrees(rotationAngle))
+                        .offset(x: offsetX)
+                        .opacity(opacity)
+                        .onTapGesture {
+                            withAnimation {
+                                rotationAngle += 45
+                                offsetX += 200
+                                opacity = 0
+                            }
                         }
-                    }
+                }
+                
                 Spacer()
                 ProgressView("", value: currentBarProgress, total: finalBarProgress)
                     .scaleEffect(x: 1, y: 2, anchor: .center)
@@ -64,7 +69,7 @@ struct FlashCardsView: View {
                 addNewCardSheet
             }
         }
-        .ignoresSafeArea()
+        .ignoresSafeArea(.all)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: CustomBackButtonView())
         .onAppear {
@@ -79,7 +84,34 @@ struct FlashCardsView: View {
                                                                                             isFavorite: false,
                                                                                             seenCount: 0,
                                                                                             isLearned: false))
-            viewModel.isAddNewCardSheetShown = false})
+            viewModel.isAddNewCardSheetShown = false
+            viewModel.getCards()})
+    }
+    
+    var backgroundCardsViewOne: some View {
+        HStack {
+            Spacer()
+            Text("xd")
+            Spacer()
+        }
+        .frame(minHeight: 500, maxHeight: 500)
+        .background(Color(UIColor.systemGray4))
+        .cornerRadius(20)
+        .padding(.horizontal, 20)
+        .offset(y: -10)
+    }
+    
+    var backgroundCardsViewTwo: some View {
+        HStack {
+            Spacer()
+            Text("xd")
+            Spacer()
+        }
+        .frame(minHeight: 500, maxHeight: 500)
+        .background(Color(UIColor.systemGray2))
+        .cornerRadius(20)
+        .padding(.horizontal, 25)
+        .offset(y: -20)
     }
 }
 
