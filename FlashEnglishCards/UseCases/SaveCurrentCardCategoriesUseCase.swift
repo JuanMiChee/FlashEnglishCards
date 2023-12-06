@@ -8,11 +8,11 @@
 import Foundation
 
 
-protocol SaveCurrentCardsCategoryUseCaseProtocol {
+protocol SaveCurrentCardCategoriesUseCaseProtocol {
     func execute(cards: [FlashCardCategoryModel])
 }
 
-struct SaveCurrentCardsCategoryUseCase: SaveCurrentCardsCategoryUseCaseProtocol {
+struct SaveCurrentCardCategoriesUseCase: SaveCurrentCardCategoriesUseCaseProtocol {
     let storage: MainStorage
     func execute(cards: [FlashCardCategoryModel]) {
         storage.saveCurrentCardsCategory(cards: cards)

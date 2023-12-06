@@ -12,12 +12,9 @@ struct HomeView: View {
     
     @StateObject var viewModel: HomeViewViewModel
     
-    var someClosureLmao: () -> Void = {}
-    
     var body: some View {
-        
+        NavigationStack {
         TabView {
-            NavigationStack {
                 ZStack {
                     Color("mainBackgroundColour")
                         .ignoresSafeArea()
@@ -48,9 +45,7 @@ struct HomeView: View {
                                 }
                             }
                         }
-                        NavigationLink(destination: FlashCardsView(categoryTitle: viewModel.currentCategoryTitle,
-                                                                   currentBarProgress: 1,
-                                                                   finalBarProgress: 20),
+                        NavigationLink(destination: FlashCardsView.build(categoryTitle: viewModel.currentCategoryTitle),
                                        isActive: $viewModel.navigateToCardsView) { EmptyView() }
                     }
                     plusButtonView
@@ -67,7 +62,7 @@ struct HomeView: View {
                 }
                 .tabItem {
                     Image(systemName: "house")
-                    Text("Nearby")
+                    Text("DashBoard")
                 }
                 .toolbarBackground(.white, for: .tabBar)
                 .toolbarBackground(.visible, for: .tabBar)

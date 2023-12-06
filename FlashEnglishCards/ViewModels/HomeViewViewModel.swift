@@ -32,7 +32,7 @@ class HomeViewViewModel: ObservableObject {
     struct Dependencies {
         let getCards: GetCardCategoriesUseCaseProtocol
         let saveCards: SaveNewCardCategoryUseCaseProtocol
-        let saveCurrentCards: SaveCurrentCardsCategoryUseCaseProtocol
+        let saveCurrentCards: SaveCurrentCardCategoriesUseCaseProtocol
     }
     
     init(dependencies: Dependencies) {

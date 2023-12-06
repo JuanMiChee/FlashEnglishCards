@@ -16,6 +16,10 @@ struct FlashCardsView: View {
     var currentBarProgress: Double
     var finalBarProgress: Double
     
+    var addCardCompletion: () -> Void
+    
+    @StateObject var viewModel: FlashCardsViewModel
+    
     var body: some View {
         ZStack {
             Color("mainBackgroundColour")
@@ -25,14 +29,12 @@ struct FlashCardsView: View {
                         .font(.system(size: 25, weight: .bold))
                         .foregroundColor(.white)
                     Spacer()
-                    Text("+")
-                        .font(.system(size: 45, weight: .bold))
-                        .foregroundColor(.white)
+                   
                 }
                 .padding([.top, .leading, .trailing], 48)
                 Spacer()
                 
-                FlashCardView(text: "example card")
+                FlashCardView(text: viewModel.viewContent.texts.last?.title ?? "No more cards")
                     .rotationEffect(.degrees(rotationAngle))
                     .offset(x: offsetX)
                     .opacity(opacity)
@@ -50,15 +52,40 @@ struct FlashCardsView: View {
                     .padding(.top, -25)
                     .padding(.horizontal, 60)
                 Spacer()
+                Text("+")
+                    .onTapGesture {
+                        viewModel.isAddNewCardSheetShown = true
+                    }
+                    .font(.system(size: 45, weight: .bold))
+                    .foregroundColor(.white)
                 Spacer()
+            }
+            .sheet(isPresented: $viewModel.isAddNewCardSheetShown) {
+                addNewCardSheet
             }
         }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: CustomBackButtonView())
+        .onAppear {
+            viewModel.getCards()
+        }
+        
+    }
+    
+    var addNewCardSheet: some View {
+        AddNewCardView(cancelCompletion: { viewModel.isAddNewCardSheetShown = false },
+                       saveCompletion: {title in viewModel.saveNewCard(card: FlashCardModel(title: title,
+                                                                                            isFavorite: false,
+                                                                                            seenCount: 0,
+                                                                                            isLearned: false))
+            viewModel.isAddNewCardSheetShown = false})
     }
 }
 
-#Preview {
-    FlashCardsView(categoryTitle: "aaa", currentBarProgress: 1, finalBarProgress: 6)
+@available(iOS 16.0, *)
+struct FlashCardsView_Previews: PreviewProvider {
+    static var previews: some View {
+        FlashCardsView.build(categoryTitle: "test card")
+    }
 }
