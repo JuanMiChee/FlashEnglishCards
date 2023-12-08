@@ -8,13 +8,13 @@
 import Foundation
 
 protocol GetCardUseCaseProtocol {
-    func execute() -> [FlashCardModel]
+    func execute(cardsCategoryTitle: String) -> [FlashCardModel]
 }
 
 struct GetCardsUseCase: GetCardUseCaseProtocol {
     let storage: MainStorage
     
-    func execute() -> [FlashCardModel]{
-        storage.getCards()
+    func execute(cardsCategoryTitle: String) -> [FlashCardModel]{
+        storage.getCards(cardsCategoryTitle: cardsCategoryTitle)
     }
 }
