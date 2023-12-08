@@ -8,13 +8,7 @@
 import SwiftUI
 
 struct FlashCardsView: View {
-    @State private var rotationAngle: Double = 0
-    @State private var offsetX: CGFloat = 0
-    @State private var opacity: Double = 1.0
     
-    var categoryTitle: String
-    var currentBarProgress: Double
-    var finalBarProgress: Double
     
     var addCardCompletion: () -> Void
     
@@ -25,7 +19,7 @@ struct FlashCardsView: View {
             Color("mainBackgroundColour")
             VStack {
                 HStack {
-                    Text(categoryTitle)
+                    Text(viewModel.categoryTitle)
                         .font(.system(size: 25, weight: .bold))
                         .foregroundColor(.white)
                     Spacer()
@@ -38,20 +32,10 @@ struct FlashCardsView: View {
                     backgroundCardsViewTwo
                     backgroundCardsViewOne
                     FlashCardView(text: viewModel.viewContent.texts.last?.title ?? "No more cards")
-                        .rotationEffect(.degrees(rotationAngle))
-                        .offset(x: offsetX)
-                        .opacity(opacity)
-                        .onTapGesture {
-                            withAnimation {
-                                rotationAngle += 45
-                                offsetX += 200
-                                opacity = 0
-                            }
-                        }
                 }
                 
                 Spacer()
-                ProgressView("", value: currentBarProgress, total: finalBarProgress)
+                ProgressView("", value: viewModel.currentBarProgress, total: viewModel.finalBarProgress)
                     .scaleEffect(x: 1, y: 2, anchor: .center)
                     .accentColor(.red)
                     .padding(.top, -25)

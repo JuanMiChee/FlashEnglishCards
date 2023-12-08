@@ -13,6 +13,11 @@ class FlashCardsViewModel: ObservableObject {
     
     @Published var isAddNewCardSheetShown: Bool = false
     
+    var categoryTitle: String
+    var currentBarProgress: Double
+    var finalBarProgress: Double
+    
+    
     let dependencies: Dependencies
     
     struct Dependencies {
@@ -20,8 +25,11 @@ class FlashCardsViewModel: ObservableObject {
         let saveCards: SaveNewCardUseCaseProtocol
     }
     
-    init(dependencies: Dependencies) {
+    init(dependencies: Dependencies, categoryTitle: String, currentBarProgress: Double, finalBarProgress: Double) {
         self.dependencies = dependencies
+        self.categoryTitle = categoryTitle
+        self.currentBarProgress = currentBarProgress
+        self.finalBarProgress = finalBarProgress
     }
     
     func addCardButtonTrigger() {
@@ -29,10 +37,10 @@ class FlashCardsViewModel: ObservableObject {
     }
     
     func saveNewCard(card: FlashCardModel) {
-        dependencies.saveCards.execute(cardCategory: card)
+        dependencies.saveCards.execute(cardCategory: card, cardCategoryTitle: categoryTitle)
     }
     
     func getCards() {
-        viewContent.texts = dependencies.getCards.execute()
+        viewContent.texts = dependencies.getCards.execute(cardsCategoryTitle: categoryTitle)
     }
 }

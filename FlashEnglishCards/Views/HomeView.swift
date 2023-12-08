@@ -25,33 +25,15 @@ struct HomeView: View {
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                         ScrollView {
-                            VStack {
-                                ForEach(viewModel.viewContent.texts) { text in
-                                    FlashCardSectionView(title: text.text,
-                                                         progresBarCurrentProgress: text.numberOfCards,
-                                                         progressBarFinishProgress: text.numberOfCompletedCards,
-                                                         sectionEditClosure: { if let index = viewModel.viewContent.texts.firstIndex(of: text) {
-                                                             viewModel.currentCardIndex = index
-                                                             viewModel.isEditCardSheetShown = true}},
-                                                         sectionDeleteClosure: { if let index = viewModel.viewContent.texts.firstIndex(of: text) {
-                                                             viewModel.viewContent.texts.remove(at: index)}
-                                                             viewModel.saveCurrentCards()})
-                                    .onTapGesture {
-                                        if let index = viewModel.viewContent.texts.firstIndex(of: text) {
-                                            viewModel.currentCategoryTitle = viewModel.viewContent.texts[index].text
-                                        }
-                                        viewModel.navigateToCardsView = true
-                                    }
-                                }
-                            }
+                            categoriesView
                         }
                         NavigationLink(destination: FlashCardsView.build(categoryTitle: viewModel.currentCategoryTitle),
-                                       isActive: $viewModel.navigateToCardsView) { EmptyView() }
+                                       isActive: $viewModel.isNavigateToCardsViewToggled) { EmptyView() }
                     }
                     plusButtonView
                 }
                 .onAppear {
-                    viewModel.asignCardsToView()
+                    viewModel.handleViewAppeared()
                 }
                 .sheet(isPresented: $viewModel.isAddNewCardSheetShown) {
                     addNewCategorySheet
@@ -74,6 +56,17 @@ struct HomeView: View {
         .navigationTitle("Inicio")
     }
     
+    var categoriesView: some View {
+        VStack {
+            ForEach(viewModel.viewContent.flashCardCategories) { categorie in
+                viewModel.buildFlashCardView(category: categorie)
+                .onTapGesture {
+                    viewModel.aCategoryGetsTapped(category: categorie)
+                }
+            }
+        }
+    }
+    
     var plusButtonView: some View {
         VStack {
             Spacer()
@@ -87,12 +80,10 @@ struct HomeView: View {
         }
     }
     
-    //Here is the sheet view
     var addNewCategorySheet: some View {
         AddNewCategoryView(cancelCompletion: {viewModel.cancelButtonTrigger()},
                            saveCompletion: { title in
             viewModel.saveButtonTrigger(title: title,
-                                        numberofCards: 0,
                                         numberOfCompletedCards: 0)
         })
     }
@@ -102,7 +93,7 @@ struct HomeView: View {
             viewModel.cancelButtonTrigger()
         },
                          saveCompletion: { title in
-            viewModel.viewContent.texts[viewModel.currentCardIndex].text = title
+            viewModel.viewContent.flashCardCategories[viewModel.currentCardIndex].text = title
             viewModel.saveCurrentCards()
             viewModel.isEditCardSheetShown = false
         })

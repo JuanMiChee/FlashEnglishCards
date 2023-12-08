@@ -49,22 +49,22 @@ struct MainStorage: StorageProtocol {
         }
     }
     
-    func saveNewCard(card: FlashCardModel) {
-        var arrayToSave: [FlashCardModel] = getCards()
+    func saveNewCard(card: FlashCardModel, cardCategoryTitle: String) {
+        var arrayToSave: [FlashCardModel] = getCards(cardsCategoryTitle: cardCategoryTitle)
         arrayToSave.append(card)
         
         do {
             let encoder = JSONEncoder()
             if let encodedFlashCardArray = try? encoder.encode(arrayToSave) {
-                defaults.set(encodedFlashCardArray, forKey: "flashCards")
+                defaults.set(encodedFlashCardArray, forKey: cardCategoryTitle)
             }
         }
     }
     
-    func getCards() -> [FlashCardModel]{
+    func getCards(cardsCategoryTitle: String) -> [FlashCardModel]{
         var returnableCardsArray: [FlashCardModel] = []
         
-        if let data = UserDefaults.standard.data(forKey: "flashCards") {
+        if let data = UserDefaults.standard.data(forKey: cardsCategoryTitle) {
             let decoder = JSONDecoder()
             
             if let decodedFlashCardArray = try? decoder.decode([FlashCardModel].self, from: data) {

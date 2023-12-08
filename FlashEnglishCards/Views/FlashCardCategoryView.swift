@@ -1,5 +1,5 @@
 //
-//  FlashCardSectionView.swift
+//  FlashCardCategoryView.swift
 //  FlashEnglishCards
 //
 //  Created by Juan Harrington on 23/11/23.
@@ -8,12 +8,12 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-struct FlashCardSectionView: View {
+struct FlashCardCategoryView: View {
     var title: String
     var progresBarCurrentProgress: Int
     var progressBarFinishProgress: Int
-    var sectionEditClosure: () -> Void
-    var sectionDeleteClosure: () -> Void
+    var categoryEditClosure: () -> Void
+    var caregoryDeleteClosure: () -> Void
     
     @State var progressBarMaxValueProceced: Int = 0
     
@@ -55,13 +55,13 @@ struct FlashCardSectionView: View {
                 }
                 .padding(.horizontal)
             }
-            .alert(Text("Want to edit this section?"), isPresented: $showEditAlert, actions: {
+            .alert(Text("Want to edit this category?"), isPresented: $showEditAlert, actions: {
                 Button("Cancel") { }
-                Button("Edit") { sectionEditClosure() }
+                Button("Edit") { categoryEditClosure() }
             })
-            .alert(Text("Want to delete this section?"), isPresented: $showDeleteAlert, actions: {
+            .alert(Text("Want to delete this category?"), isPresented: $showDeleteAlert, actions: {
                 Button("Cancel") { }
-                Button("delete") { sectionDeleteClosure() }
+                Button("delete") { caregoryDeleteClosure() }
             })
             
         }
@@ -79,12 +79,12 @@ struct FlashCardSectionView: View {
     }
 }
 @available(iOS 17.0, *)
-struct FlashCardSectionView_Previews: PreviewProvider {
+struct FlashCardCategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        FlashCardSectionView(title: "",
+        FlashCardCategoryView(title: "",
                              progresBarCurrentProgress: 20,
                              progressBarFinishProgress: 30,
-                             sectionEditClosure: {},
-                             sectionDeleteClosure: {})
+                             categoryEditClosure: {},
+                             caregoryDeleteClosure: {})
     }
 }
