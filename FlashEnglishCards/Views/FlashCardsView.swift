@@ -17,6 +17,7 @@ struct FlashCardsView: View {
     var body: some View {
         ZStack {
             Color("mainBackgroundColour")
+            .ignoresSafeArea()
             VStack {
                 HStack {
                     Text(viewModel.categoryTitle)
@@ -25,8 +26,9 @@ struct FlashCardsView: View {
                     Spacer()
                    
                 }
-                .padding([.top, .leading, .trailing], 48)
-                Spacer()
+                .padding([.leading, .trailing], 48)
+                .padding(.bottom, 48)
+                
                 
                 ZStack {
                     backgroundCardsViewTwo
@@ -49,11 +51,11 @@ struct FlashCardsView: View {
                     .foregroundColor(.white)
                 Spacer()
             }
+            .padding(.bottom, 48)
             .sheet(isPresented: $viewModel.isAddNewCardSheetShown) {
                 addNewCardSheet
             }
         }
-        .ignoresSafeArea(.all)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: CustomBackButtonView())
         .onAppear {
@@ -99,7 +101,6 @@ struct FlashCardsView: View {
     }
 }
 
-@available(iOS 16.0, *)
 struct FlashCardsView_Previews: PreviewProvider {
     static var previews: some View {
         FlashCardsView.build(categoryTitle: "test card")

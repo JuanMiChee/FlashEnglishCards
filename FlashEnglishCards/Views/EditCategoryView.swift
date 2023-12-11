@@ -15,6 +15,7 @@ struct EditCategoryView: View {
     var body: some View {
         ZStack {
             Color("mainBackgroundColour")
+            .ignoresSafeArea()
             VStack {
                 Spacer()
                 Spacer()
@@ -46,7 +47,6 @@ struct EditCategoryView: View {
                 .padding(.bottom, 30)
             }
         }
-        .ignoresSafeArea()
     }
 }
 

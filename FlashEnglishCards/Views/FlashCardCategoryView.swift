@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(iOS 15.0, *)
 struct FlashCardCategoryView: View {
     var title: String
     var progresBarCurrentProgress: Int
@@ -78,7 +77,6 @@ struct FlashCardCategoryView: View {
         
     }
 }
-@available(iOS 17.0, *)
 struct FlashCardCategoryView_Previews: PreviewProvider {
     static var previews: some View {
         FlashCardCategoryView(title: "",

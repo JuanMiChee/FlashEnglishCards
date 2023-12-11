@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 extension Font {
-    @available(iOS 16.0, *)
+
     static func system(
         size: CGFloat,
         weight: UIFont.Weight,

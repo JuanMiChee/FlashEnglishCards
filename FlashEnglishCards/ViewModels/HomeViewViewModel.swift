@@ -96,7 +96,6 @@ class HomeViewViewModel: ObservableObject {
         saveCurrentCards()
     }
     
-    @available(iOS 15.0, *)
     func buildFlashCardView(category: FlashCardCategoryModel) -> FlashCardCategoryView {
         FlashCardCategoryView(title: category.text,
                              progresBarCurrentProgress: category.numberOfCompletedCards,

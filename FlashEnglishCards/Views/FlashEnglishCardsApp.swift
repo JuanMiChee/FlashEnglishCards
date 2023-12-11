@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(iOS 16.0, *)
 @main
 struct FlashEnglishCardsApp: App {
     @State private var isDarkModeEnabled = false

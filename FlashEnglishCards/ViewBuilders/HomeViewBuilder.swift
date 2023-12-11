@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 16.0, *)
 extension HomeView {
     static func build() -> Self {
         let storage = MainStorage()

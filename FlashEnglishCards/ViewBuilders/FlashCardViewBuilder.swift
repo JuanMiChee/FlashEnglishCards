@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 16.0, *)
 extension FlashCardsView {
     static func build(categoryTitle: String) -> Self {
         let storage = MainStorage()
