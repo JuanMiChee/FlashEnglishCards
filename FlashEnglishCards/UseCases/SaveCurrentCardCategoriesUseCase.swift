@@ -9,12 +9,12 @@ import Foundation
 
 
 protocol SaveCurrentCardCategoriesUseCaseProtocol {
-    func execute(cards: [FlashCardCategoryModel])
+  func execute(cards: [FlashCardCategoryModel])
 }
 
 struct SaveCurrentCardCategoriesUseCase: SaveCurrentCardCategoriesUseCaseProtocol {
-    let storage: MainStorage
-    func execute(cards: [FlashCardCategoryModel]) {
-        storage.saveCurrentCardsCategory(cards: cards)
-    }
+  let storage: MainStorage
+  func execute(cards: [FlashCardCategoryModel]) {
+    storage.saveCurrentCardsCategory(cards: cards)
+  }
 }

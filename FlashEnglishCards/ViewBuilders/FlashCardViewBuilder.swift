@@ -8,15 +8,18 @@
 import Foundation
 
 extension FlashCardsView {
-    static func build(categoryTitle: String) -> Self {
-        let storage = MainStorage()
-        let getCardsUseCase = GetCardsUseCase(storage: storage)
-        let saveCardsUseCase = SaveNewCardUseCase(storage: storage)
-        
-        return .init(addCardCompletion: {},
-                     viewModel: FlashCardsViewModel(dependencies: .init(getCards: getCardsUseCase, saveCards: saveCardsUseCase),
-                                                    categoryTitle: categoryTitle,
-                                                    currentBarProgress: 0,
-                                                    finalBarProgress: 1))
-    }
+  static func build(categoryTitle: String) -> Self {
+    let storage = MainStorage()
+    let getCardsUseCase = GetCardsUseCase(storage: storage)
+    let saveCardsUseCase = SaveNewCardUseCase(storage: storage)
+    let saveCurrentCardsUseCase = SaveCurrentCardsUseCase(storage: storage)
+    
+    return .init(addCardCompletion: {},
+                 viewModel: FlashCardsViewModel(dependencies: .init(getCards: getCardsUseCase,
+                                                                    saveCard: saveCardsUseCase,
+                                                                    saveCards: saveCurrentCardsUseCase),
+                                                categoryTitle: categoryTitle,
+                                                currentBarProgress: 0,
+                                                finalBarProgress: 1))
+  }
 }
