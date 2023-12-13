@@ -8,12 +8,12 @@
 import Foundation
 
 protocol SaveNewCardCategoryUseCaseProtocol {
-    func execute(cardCategory: FlashCardCategoryModel)
+  func execute(cardCategory: FlashCardCategoryModel)
 }
 
 struct SaveNewCardCategoryUseCase: SaveNewCardCategoryUseCaseProtocol {
-    let storage: MainStorage
-    func execute(cardCategory: FlashCardCategoryModel) {
-        storage.saveNewCardCategory(card: cardCategory)
-    }
+  let storage: MainStorage
+  func execute(cardCategory: FlashCardCategoryModel) {
+    storage.saveNewCardCategory(card: cardCategory)
+  }
 }

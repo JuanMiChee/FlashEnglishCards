@@ -9,16 +9,15 @@ import Foundation
 import SwiftUI
 
 extension Font {
-
-    static func system(
-        size: CGFloat,
-        weight: UIFont.Weight,
-        width: UIFont.Width) -> Font {
-        return Font(
-            UIFont.systemFont(
-                ofSize: size,
-                weight: weight,
-                width: width)
-        )
+  static func system(
+    size: CGFloat,
+    weight: UIFont.Weight,
+    width: UIFont.Width) -> Font {
+      return Font(
+        UIFont.systemFont(
+          ofSize: size,
+          weight: weight,
+          width: width)
+      )
     }
 }

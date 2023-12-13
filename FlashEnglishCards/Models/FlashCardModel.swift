@@ -8,8 +8,8 @@
 import Foundation
 
 struct FlashCardModel: Decodable, Encodable {
-    let title: String
-    let isFavorite: Bool
-    let seenCount: Int
-    let isLearned: Bool
+  let title: String
+  let isFavorite: Bool
+  var seenCount: Int
+  let isLearned: Bool
 }

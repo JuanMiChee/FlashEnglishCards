@@ -33,7 +33,10 @@ struct FlashCardsView: View {
                 ZStack {
                     backgroundCardsViewTwo
                     backgroundCardsViewOne
-                    FlashCardView(text: viewModel.viewContent.texts.last?.title ?? "No more cards")
+                    FlashCardView(text: viewModel.viewContent.texts.last?.title ?? "No more cards",
+                                  seenCompletion: {viewModel.addPlusOneToSeenCount()
+                      print("e?=?\(viewModel.viewContent.texts.last?.seenCount)")},
+                                  learnedCompletion: {})
                 }
                 
                 Spacer()

@@ -9,21 +9,21 @@ import SwiftUI
 
 @main
 struct FlashEnglishCardsApp: App {
-    @State private var isDarkModeEnabled = false
-    
-    var body: some Scene {
-        WindowGroup {
-            HomeView.build()
-                .environment(\.colorScheme, isDarkModeEnabled ? .dark : .light)
-                                .onChange(of: isDarkModeEnabled) { _ in
-                                    updateColorScheme()
-                                }
+  @State private var isDarkModeEnabled = false
+  
+  var body: some Scene {
+    WindowGroup {
+      HomeView.build()
+        .environment(\.colorScheme, isDarkModeEnabled ? .dark : .light)
+        .onChange(of: isDarkModeEnabled) { _ in
+          updateColorScheme()
         }
     }
-    
-    private func updateColorScheme() {
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = isDarkModeEnabled ? .dark : .light
-            }
-        }
+  }
+  
+  private func updateColorScheme() {
+    UIApplication.shared.windows.forEach { window in
+      window.overrideUserInterfaceStyle = isDarkModeEnabled ? .dark : .light
+    }
+  }
 }

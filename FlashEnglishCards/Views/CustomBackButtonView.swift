@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct CustomBackButtonView: View {
-    @Environment(\.presentationMode) var presentationMode
-
-    var body: some View {
-        Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")  
-                .foregroundColor(.white)
-                .imageScale(.large)
-        }
+  @Environment(\.presentationMode) var presentationMode
+  
+  var body: some View {
+    Button(action: {
+      presentationMode.wrappedValue.dismiss()
+    }) {
+      Image(systemName: "chevron.left")  
+        .foregroundColor(.white)
+        .imageScale(.large)
     }
+  }
 }
 
 struct CustomBackButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomBackButtonView()
-    }
+  static var previews: some View {
+    CustomBackButtonView()
+  }
 }

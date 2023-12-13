@@ -8,5 +8,6 @@
 import Foundation
 
 struct FlashCardsViewContent {
-    var texts: [FlashCardModel]
+  var texts: [FlashCardModel]
 }
+
