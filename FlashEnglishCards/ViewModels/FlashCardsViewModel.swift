@@ -10,6 +10,7 @@ import Foundation
 class FlashCardsViewModel: ObservableObject {
   
   @Published var viewContent: FlashCardsViewContent = .init(texts: [])
+  var learnedCards: [FlashCardModel] = []
   
   @Published var isAddNewCardSheetShown: Bool = false
   
@@ -24,6 +25,7 @@ class FlashCardsViewModel: ObservableObject {
     let getCards: GetCardUseCaseProtocol
     let saveCard: SaveNewCardUseCaseProtocol
     let saveCards: SaveCurrentCardsUseCaseProtocol
+    let saveLearnedCards: SaveLearnedCardsUseCaseProtocol
   }
   
   init(dependencies: Dependencies, categoryTitle: String, currentBarProgress: Double, finalBarProgress: Double) {
@@ -50,22 +52,41 @@ class FlashCardsViewModel: ObservableObject {
   }
   
   func addPlusOneToSeenCount() {
-    if var firstIndex = viewContent.texts.first {
-      firstIndex.seenCount = firstIndex.seenCount + 1
-      viewContent.texts.remove(at: 0)
-      viewContent.texts.append(firstIndex)
+    if var firstIndex = viewContent.texts.last {
+      
+      if firstIndex.isLearned == false {
+        firstIndex.seenDates.append(Date())
+        viewContent.texts.insert(firstIndex, at: 0)
+      }
+      
+      if firstIndex.seenDates.count >= 5 {
+        firstIndex.isLearned = true
+        learnedCards.append(firstIndex)
+        viewContent.texts.removeLast()
+      }
+      
+      viewContent.texts.removeLast()
+      
       dependencies.saveCards.execute(cards: viewContent.texts.map({ cards in
         FlashCardModel(title: cards.title,
                        isFavorite: cards.isFavorite,
-                       seenCount: cards.seenCount,
-                       isLearned: cards.isLearned)
+                       isLearned: cards.isLearned,
+                       seenDates: cards.seenDates)
       }), cardCategoryTitle: categoryTitle)
+      
+      dependencies.saveLearnedCards.execute(cards: learnedCards,
+                                            cardCategoryTitle: categoryTitle)
     }
   }
   
   func isCardLearnedTapped() {
-    if var firstIndex = viewContent.texts.first {
-      viewContent.texts.remove(at: 0)
+    print(learnedCards)
+    if var firstIndex = viewContent.texts.last {
+      firstIndex.isLearned = true
+      viewContent.texts.removeLast()
+      learnedCards.append(firstIndex)
+      dependencies.saveLearnedCards.execute(cards: learnedCards,
+                                            cardCategoryTitle: categoryTitle)
     }
   }
 }

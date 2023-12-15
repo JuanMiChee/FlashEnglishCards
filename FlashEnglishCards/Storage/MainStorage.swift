@@ -58,6 +58,15 @@ struct MainStorage: StorageProtocol {
     }
   }
   
+  func saveLearnedCards(cards: [FlashCardModel], cardCategoryTitle: String) {
+    do {
+      let encoder = JSONEncoder()
+      if let encodedFlashCardArray = try? encoder.encode(cards) {
+        defaults.set(encodedFlashCardArray, forKey: "favorite\(cardCategoryTitle)")
+      }
+    }
+  }
+  
   func saveNewCard(card: FlashCardModel, cardCategoryTitle: String) {
     var arrayToSave: [FlashCardModel] = getCards(cardsCategoryTitle: cardCategoryTitle)
     arrayToSave.append(card)

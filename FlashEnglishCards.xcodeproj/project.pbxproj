@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7321A7312B2BB6D700F300BE /* SaveLearnedCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7321A7302B2BB6D700F300BE /* SaveLearnedCards.swift */; };
 		7325672B2B2A54C4006BCA98 /* SaveCurrentCardsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7325672A2B2A54C4006BCA98 /* SaveCurrentCardsUseCase.swift */; };
 		733DADBC2B1538A400E303DC /* AddNewCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DADBB2B1538A400E303DC /* AddNewCategoryView.swift */; };
 		733DADBE2B15394B00E303DC /* FlashCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DADBD2B15394B00E303DC /* FlashCardsView.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7321A7302B2BB6D700F300BE /* SaveLearnedCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLearnedCards.swift; sourceTree = "<group>"; };
 		7325672A2B2A54C4006BCA98 /* SaveCurrentCardsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCurrentCardsUseCase.swift; sourceTree = "<group>"; };
 		733DADBB2B1538A400E303DC /* AddNewCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCategoryView.swift; sourceTree = "<group>"; };
 		733DADBD2B15394B00E303DC /* FlashCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsView.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				73C857632B2112E2003E1E9B /* SaveNewCardUseCase.swift */,
 				73C857652B2113F2003E1E9B /* GetCardsUseCase.swift */,
 				7325672A2B2A54C4006BCA98 /* SaveCurrentCardsUseCase.swift */,
+				7321A7302B2BB6D700F300BE /* SaveLearnedCards.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				738849F52B10052D00735E64 /* FlashCardCategoryView.swift in Sources */,
 				7350E63E2AFD366300A225C4 /* FlashEnglishCardsApp.swift in Sources */,
 				7350E6CD2AFF33B800A225C4 /* HomeViewBuilder.swift in Sources */,
+				7321A7312B2BB6D700F300BE /* SaveLearnedCards.swift in Sources */,
 				7350E6AE2AFF0BE700A225C4 /* MainStorage.swift in Sources */,
 				7350E6A32AFEEB2D00A225C4 /* HomeViewViewContent.swift in Sources */,
 				733DADBC2B1538A400E303DC /* AddNewCategoryView.swift in Sources */,

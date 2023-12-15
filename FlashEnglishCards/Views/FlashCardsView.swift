@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct FlashCardsView: View {
-    
-    
+
     var addCardCompletion: () -> Void
     
     @StateObject var viewModel: FlashCardsViewModel
@@ -34,9 +33,8 @@ struct FlashCardsView: View {
                     backgroundCardsViewTwo
                     backgroundCardsViewOne
                     FlashCardView(text: viewModel.viewContent.texts.last?.title ?? "No more cards",
-                                  seenCompletion: {viewModel.addPlusOneToSeenCount()
-                      print("e?=?\(viewModel.viewContent.texts.last?.seenCount)")},
-                                  learnedCompletion: {})
+                                  seenCompletion: { viewModel.addPlusOneToSeenCount()},
+                                  learnedCompletion: { viewModel.isCardLearnedTapped() })
                 }
                 
                 Spacer()
@@ -71,8 +69,8 @@ struct FlashCardsView: View {
         AddNewCardView(cancelCompletion: { viewModel.isAddNewCardSheetShown = false },
                        saveCompletion: {title in viewModel.saveNewCard(card: FlashCardModel(title: title,
                                                                                             isFavorite: false,
-                                                                                            seenCount: 0,
-                                                                                            isLearned: false))
+                                                                                            isLearned: false,
+                                                                                            seenDates: [Date]()))
             viewModel.isAddNewCardSheetShown = false
             viewModel.getCards()})
     }

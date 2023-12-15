@@ -13,11 +13,13 @@ extension FlashCardsView {
     let getCardsUseCase = GetCardsUseCase(storage: storage)
     let saveCardsUseCase = SaveNewCardUseCase(storage: storage)
     let saveCurrentCardsUseCase = SaveCurrentCardsUseCase(storage: storage)
+    let saveLearnedCardsUseCase = SaveLearnedCardsUseCase(storage: storage)
     
     return .init(addCardCompletion: {},
                  viewModel: FlashCardsViewModel(dependencies: .init(getCards: getCardsUseCase,
                                                                     saveCard: saveCardsUseCase,
-                                                                    saveCards: saveCurrentCardsUseCase),
+                                                                    saveCards: saveCurrentCardsUseCase,
+                                                                    saveLearnedCards: saveLearnedCardsUseCase),
                                                 categoryTitle: categoryTitle,
                                                 currentBarProgress: 0,
                                                 finalBarProgress: 1))
