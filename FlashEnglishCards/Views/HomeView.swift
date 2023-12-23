@@ -26,6 +26,7 @@ struct HomeView: View {
             ScrollView {
               categoriesView
             }
+            .padding(.bottom, 100)
           }
           plusButtonView
         }
@@ -33,7 +34,8 @@ struct HomeView: View {
           viewModel.handleViewAppeared()
         }
         .navigationDestination(isPresented: $viewModel.isNavigateToCardsViewToggled,
-                               destination: { FlashCardsView.build(categoryTitle: viewModel.currentCategoryTitle) })
+                               destination: { FlashCardsView.build(categoryTitle: viewModel.currentCategoryTitle,
+                                                                   categoryId: viewModel.currentCategoryId) })
         .sheet(isPresented: $viewModel.isAddNewCardSheetShown) {
           addNewCategorySheet
         }
@@ -82,8 +84,9 @@ struct HomeView: View {
   
   var addNewCategorySheet: some View {
     AddNewCategoryView(cancelCompletion: {viewModel.cancelButtonTrigger()},
-                       saveCompletion: { title in
+                       saveCompletion: { title, id  in
       viewModel.saveButtonTrigger(title: title,
+                                  id: id,
                                   numberOfCompletedCards: 0)
     })
   }

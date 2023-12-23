@@ -58,15 +58,6 @@ struct MainStorage: StorageProtocol {
     }
   }
   
-  func saveLearnedCards(cards: [FlashCardModel], cardCategoryTitle: String) {
-    do {
-      let encoder = JSONEncoder()
-      if let encodedFlashCardArray = try? encoder.encode(cards) {
-        defaults.set(encodedFlashCardArray, forKey: "favorite\(cardCategoryTitle)")
-      }
-    }
-  }
-  
   func saveNewCard(card: FlashCardModel, cardCategoryTitle: String) {
     var arrayToSave: [FlashCardModel] = getCards(cardsCategoryTitle: cardCategoryTitle)
     arrayToSave.append(card)
@@ -86,6 +77,50 @@ struct MainStorage: StorageProtocol {
       let decoder = JSONDecoder()
       
       if let decodedFlashCardArray = try? decoder.decode([FlashCardModel].self, from: data) {
+        returnableCardsArray = decodedFlashCardArray
+      }
+    }
+    return returnableCardsArray
+  }
+  
+  func saveLearnedCards(cards: [FlashCardModel], cardCategoryTitle: String) {
+    do {
+      let encoder = JSONEncoder()
+      if let encodedFlashCardArray = try? encoder.encode(cards) {
+        defaults.set(encodedFlashCardArray, forKey: "learned\(cardCategoryTitle)")
+      }
+    }
+  }
+  
+  func getLearnedCards(cardsCategoryTitle: String) -> [FlashCardModel]{
+    var returnableCardsArray: [FlashCardModel] = []
+    
+    if let data = UserDefaults.standard.data(forKey: "learned\(cardsCategoryTitle)") {
+      let decoder = JSONDecoder()
+      
+      if let decodedFlashCardArray = try? decoder.decode([FlashCardModel].self, from: data) {
+        returnableCardsArray = decodedFlashCardArray
+      }
+    }
+    return returnableCardsArray
+  }
+  
+  func saveTotalAmountOfCreatedCards(cardsCategoryTitle: String, totalAmountOfCards: Double) {
+    do {
+      let encoder = JSONEncoder()
+      if let encodedNumberOfThings = try? encoder.encode(totalAmountOfCards) {
+        defaults.set(encodedNumberOfThings, forKey: "total\(cardsCategoryTitle)")
+      }
+    }
+  }
+  
+  func getTotalAmountOfCreatedCards(cardsCategoryTitle: String) -> Double {
+    var returnableCardsArray: Double = 0
+    
+    if let data = UserDefaults.standard.data(forKey: "total\(cardsCategoryTitle)") {
+      let decoder = JSONDecoder()
+      
+      if let decodedFlashCardArray = try? decoder.decode(Double.self, from: data) {
         returnableCardsArray = decodedFlashCardArray
       }
     }

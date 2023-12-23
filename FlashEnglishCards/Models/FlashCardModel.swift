@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct FlashCardModel: Decodable, Encodable {
+struct FlashCardModel: Codable {
   let title: String
+  let id: String
   var isFavorite: Bool
   var seenCount: Int {
     return seenDates.count

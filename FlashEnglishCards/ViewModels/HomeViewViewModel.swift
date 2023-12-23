@@ -22,21 +22,26 @@ class HomeViewViewModel: ObservableObject {
   @Published var viewContent: HomeViewViewContent = HomeViewViewContent(flashCardCategories: [FlashCardCategoryModel(text: "",
                                                                                                                      flashCards: [],
                                                                                                                      numberOfCompletedCards: 0,
-                                                                                                                     progressBarColor: "red")])
+                                                                                                                     progressBarColor: "red",
+                                                                                                                     id: UUID().uuidString)])
   
   let dependencies: Dependencies
   
   var currentCategoryTitle: String = ""
+  var currentCategoryId: String
   
   struct Dependencies {
     let getCardCategories: GetCardCategoriesUseCaseProtocol
     let saveCardsCategories: SaveNewCardCategoryUseCaseProtocol
     let saveCurrentCards: SaveCurrentCardCategoriesUseCaseProtocol
-    let getCards: GetCardsUseCase
+    let getCards: GetCardUseCaseProtocol
+    let getLearnedCards: GetLeanedCardsUseCaseProtocol
+    let getTotalAmountOfCards: GetTotalAmountOfCreatedCards
   }
   
-  init(dependencies: Dependencies) {
+  init(dependencies: Dependencies, id: String) {
     self.dependencies = dependencies
+    self.currentCategoryId = id
   }
   
   
@@ -51,18 +56,20 @@ class HomeViewViewModel: ObservableObject {
   func saveCurrentCards() {
     dependencies.saveCurrentCards.execute(cards: viewContent.flashCardCategories.map({ card in
       FlashCardCategoryModel(text: card.text,
-                             flashCards: dependencies.getCards.execute(cardsCategoryTitle: card.text),
+                             flashCards: dependencies.getCards.execute(cardCategoryId: card.id),
                              numberOfCompletedCards: 0,
-                             progressBarColor: "red")
+                             progressBarColor: "red",
+                             id: card.id)
     }))
   }
   
-  func saveButtonTrigger(title: String, numberOfCompletedCards: Int) {
+  func saveButtonTrigger(title: String, id: String, numberOfCompletedCards: Int) {
     isAddNewCardSheetShown = false
     saveNewCardCategory(cardCategory: FlashCardCategoryModel(text: title,
                                                              flashCards: [],
                                                              numberOfCompletedCards: numberOfCompletedCards,
-                                                             progressBarColor: "red"))
+                                                             progressBarColor: "red",
+                                                             id: id))
     asignCardsToView()
     newCardCategoryTittle = ""
   }
@@ -98,8 +105,8 @@ class HomeViewViewModel: ObservableObject {
   
   func buildFlashCardView(category: FlashCardCategoryModel) -> FlashCardCategoryView {
     FlashCardCategoryView(title: category.text,
-                          progresBarCurrentProgress: category.numberOfCompletedCards,
-                          progressBarFinishProgress: category.flashCards.count,
+                          progresBarCurrentProgress: dependencies.getLearnedCards.execute(cardCategoryId: category.id).count,
+                          progressBarFinishProgress: Int(dependencies.getTotalAmountOfCards.execute(cardCategoryId: category.id)),
                           categoryEditClosure: { if let index = self.viewContent.flashCardCategories.firstIndex(of: category) {
                             self.currentCardIndex = index
                             self.isEditCardSheetShown = true}},
@@ -111,6 +118,7 @@ class HomeViewViewModel: ObservableObject {
   func aCategoryGetsTapped(category: FlashCardCategoryModel) {
     if let index = viewContent.flashCardCategories.firstIndex(of: category) {
       currentCategoryTitle = viewContent.flashCardCategories[index].text
+      currentCategoryId = viewContent.flashCardCategories[index].id
     }
     navigateToCardsView()
   }

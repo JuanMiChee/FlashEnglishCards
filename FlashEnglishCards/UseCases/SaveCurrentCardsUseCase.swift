@@ -8,12 +8,12 @@
 import Foundation
 
 protocol SaveCurrentCardsUseCaseProtocol {
-  func execute(cards: [FlashCardModel], cardCategoryTitle: String)
+  func execute(cards: [FlashCardModel], cardCategoryId: String)
 }
 
 struct SaveCurrentCardsUseCase: SaveCurrentCardsUseCaseProtocol {
   let storage: MainStorage
-  func execute(cards: [FlashCardModel], cardCategoryTitle: String) {
-    storage.saveCurrentCards(cards: cards, cardCategoryTitle: cardCategoryTitle)
+  func execute(cards: [FlashCardModel], cardCategoryId: String) {
+    storage.saveCurrentCards(cards: cards, cardCategoryTitle: cardCategoryId)
   }
 }

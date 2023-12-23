@@ -60,19 +60,25 @@ struct FlashCardsView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: CustomBackButtonView())
         .onAppear {
-            viewModel.getCards()
+          viewModel.getCards()
+          viewModel.getCurrentAmountOfCards()
+          viewModel.viewAppeared()
         }
-        
+        .onDisappear {
+          viewModel.onDisappearView()
+        }
     }
     
     var addNewCardSheet: some View {
         AddNewCardView(cancelCompletion: { viewModel.isAddNewCardSheetShown = false },
                        saveCompletion: {title in viewModel.saveNewCard(card: FlashCardModel(title: title,
+                                                                                            id: UUID().uuidString,
                                                                                             isFavorite: false,
                                                                                             isLearned: false,
                                                                                             seenDates: [Date]()))
-            viewModel.isAddNewCardSheetShown = false
-            viewModel.getCards()})
+          viewModel.isAddNewCardSheetShown = false
+          viewModel.getCards()
+          viewModel.saveAmountOfCreatedCards()})
     }
     
     var backgroundCardsViewOne: some View {
@@ -104,6 +110,6 @@ struct FlashCardsView: View {
 
 struct FlashCardsView_Previews: PreviewProvider {
     static var previews: some View {
-        FlashCardsView.build(categoryTitle: "test card")
+      FlashCardsView.build(categoryTitle: "test card", categoryId: "")
     }
 }

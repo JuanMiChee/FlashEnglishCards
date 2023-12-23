@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730DD8EF2B30F705009E56A6 /* GetLearnedCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730DD8EE2B30F705009E56A6 /* GetLearnedCards.swift */; };
+		730DD8F12B31000E009E56A6 /* SaveTotalAmountOfCreatedCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730DD8F02B31000E009E56A6 /* SaveTotalAmountOfCreatedCards.swift */; };
+		730DD8F32B31001D009E56A6 /* GetTotalAmountOfCreatedCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730DD8F22B31001D009E56A6 /* GetTotalAmountOfCreatedCards.swift */; };
 		7321A7312B2BB6D700F300BE /* SaveLearnedCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7321A7302B2BB6D700F300BE /* SaveLearnedCards.swift */; };
 		7325672B2B2A54C4006BCA98 /* SaveCurrentCardsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7325672A2B2A54C4006BCA98 /* SaveCurrentCardsUseCase.swift */; };
 		733DADBC2B1538A400E303DC /* AddNewCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DADBB2B1538A400E303DC /* AddNewCategoryView.swift */; };
@@ -61,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		730DD8EE2B30F705009E56A6 /* GetLearnedCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLearnedCards.swift; sourceTree = "<group>"; };
+		730DD8F02B31000E009E56A6 /* SaveTotalAmountOfCreatedCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTotalAmountOfCreatedCards.swift; sourceTree = "<group>"; };
+		730DD8F22B31001D009E56A6 /* GetTotalAmountOfCreatedCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTotalAmountOfCreatedCards.swift; sourceTree = "<group>"; };
 		7321A7302B2BB6D700F300BE /* SaveLearnedCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLearnedCards.swift; sourceTree = "<group>"; };
 		7325672A2B2A54C4006BCA98 /* SaveCurrentCardsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCurrentCardsUseCase.swift; sourceTree = "<group>"; };
 		733DADBB2B1538A400E303DC /* AddNewCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCategoryView.swift; sourceTree = "<group>"; };
@@ -254,6 +260,9 @@
 				73C857652B2113F2003E1E9B /* GetCardsUseCase.swift */,
 				7325672A2B2A54C4006BCA98 /* SaveCurrentCardsUseCase.swift */,
 				7321A7302B2BB6D700F300BE /* SaveLearnedCards.swift */,
+				730DD8EE2B30F705009E56A6 /* GetLearnedCards.swift */,
+				730DD8F02B31000E009E56A6 /* SaveTotalAmountOfCreatedCards.swift */,
+				730DD8F22B31001D009E56A6 /* GetTotalAmountOfCreatedCards.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -428,9 +437,11 @@
 				738849F32B1003AB00735E64 /* FontExtension.swift in Sources */,
 				73C8575D2B1FC18F003E1E9B /* FlashCardsViewModel.swift in Sources */,
 				733DADCE2B19897C00E303DC /* ColorExtension.swift in Sources */,
+				730DD8EF2B30F705009E56A6 /* GetLearnedCards.swift in Sources */,
 				73C857642B2112E2003E1E9B /* SaveNewCardUseCase.swift in Sources */,
 				73C857572B1F9B9D003E1E9B /* EditCategoryView.swift in Sources */,
 				7350E6882AFED86000A225C4 /* FlashCardView.swift in Sources */,
+				730DD8F32B31001D009E56A6 /* GetTotalAmountOfCreatedCards.swift in Sources */,
 				7350E69C2AFEEA5800A225C4 /* SaveNewCardCategoryUseCase.swift in Sources */,
 				7350E6B32AFF0CA900A225C4 /* FlashCardCategoryModel.swift in Sources */,
 				73C857662B2113F2003E1E9B /* GetCardsUseCase.swift in Sources */,
@@ -445,6 +456,7 @@
 				73D0903E2B053B26007526A1 /* CardMoreInfoView.swift in Sources */,
 				733DADD22B1A990D00E303DC /* FlashCardModel.swift in Sources */,
 				733DADD02B1A8F9F00E303DC /* CustomBackButtonView.swift in Sources */,
+				730DD8F12B31000E009E56A6 /* SaveTotalAmountOfCreatedCards.swift in Sources */,
 				73C8575B2B1FC0BA003E1E9B /* AddNewCardView.swift in Sources */,
 				738849F52B10052D00735E64 /* FlashCardCategoryView.swift in Sources */,
 				7350E63E2AFD366300A225C4 /* FlashEnglishCardsApp.swift in Sources */,

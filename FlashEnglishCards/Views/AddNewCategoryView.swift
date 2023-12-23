@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddNewCategoryView: View {
   var cancelCompletion: (() -> Void)
-  var saveCompletion: ((_ title: String) -> Void)
+  var saveCompletion: ((_ title: String, _ id: String) -> Void)
   @State var categoryTitle: String = ""
   
   var body: some View {
@@ -36,7 +36,7 @@ struct AddNewCategoryView: View {
         .padding(.bottom)
         Spacer()
         Button("Save") {
-          saveCompletion(categoryTitle)
+          saveCompletion(categoryTitle, UUID().uuidString)
         }
         .buttonStyle(MainButtonStyle())
         Button("Cancel") {
@@ -51,5 +51,5 @@ struct AddNewCategoryView: View {
 }
 
 #Preview {
-  AddNewCategoryView(cancelCompletion: {}, saveCompletion: {titulo in })
+  AddNewCategoryView(cancelCompletion: {}, saveCompletion: {titulo, id in })
 }

@@ -14,10 +14,15 @@ extension HomeView {
     let saveCardCategoriesUseCase = SaveNewCardCategoryUseCase(storage: storage)
     let saveCurrentCardCategoriesUseCase = SaveCurrentCardCategoriesUseCase(storage: storage)
     let getCardsUseCase = GetCardsUseCase(storage: storage)
+    let getLeanedCardsUseCase = GetLeanedCardsUseCase(storage: storage)
+    let getTotalAmount = GetTotalAmountOfCreatedCards(storage: storage)
     
     return .init(viewModel: .init(dependencies: .init(getCardCategories: getCardCategoriesUseCase,
                                                       saveCardsCategories: saveCardCategoriesUseCase,
                                                       saveCurrentCards: saveCurrentCardCategoriesUseCase,
-                                                      getCards: getCardsUseCase)))
+                                                      getCards: getCardsUseCase,
+                                                      getLearnedCards: getLeanedCardsUseCase,
+                                                      getTotalAmountOfCards: getTotalAmount),
+                                  id: UUID().uuidString))
   }
 }
